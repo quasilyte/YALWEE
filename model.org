@@ -1,12 +1,11 @@
 #+CAPTION: registers
 | Register  | Description                                   | Location  |
 |-----------+-----------------------------------------------+-----------|
-| iacc      | accumulator (implicit receiver for int arith) | rdi       |
+| iacc      | accumulator (implicit receiver for int arith) | r0        |
 | ir0 - ir7 | 8 int64 registers                             | r8-r15    |
 | facc      | floating point accumulator                    | xmm0      |
-| fr0 - fr7 | 8 float64 registers                           | xmm1-xmm8 |
+| fr0 - fr7 | 8 float64 registers                           | xmm0-xmm8 |
 | counter   | int64 register for loops                      | rsi       |
-|           |                                               |           |
 
 #+CAPTION: opcodes
 | Mnemonics        | Operation  | Description                     |
@@ -14,62 +13,10 @@
 | iacc.add         | iacc+={ie} | add {ie} value to the iacc      |
 | iacc.load        | iacc={ie}  | load {ie} value into iacc       |
 | iacc.save        | [irx]=iacc | store iacc value into [irx]     |
-|                  |            |                                 |
 | [irx].set        | [irx]={ie} | store {ie} value into [irx]     |
 | [irx].jmpz label |            | if [irx] is zero, jump to label |
-|                  |            |                                 |
 | jmp label        |            | unconditional jump              |
 
 {ie} - int expression (immediate or register source)
 [irx] - int register
 
-loop/repeat 100
-  push/loop # push inductor value into stack
-  loop/repeat 100
-    # can access current inductor stack
-  end
-  pop/loop # pop inductor value from stack
-end
-
-// 1) set counter to 100
-// 2) do body 
-// 3) on endrepeat check counter is 0;
-// 3.1) if counter is 0, do nothing
-// 3.2) otherwise jump to stack stored offset
-
-repeat:
-- push loop begin on the stack top
-- sets counter
-repeat.loop:
-- decreases counter
-- jumps to top stack addr if counter is 0
-- pops top stack addr if counter is 0
-
-    mov ecx, N 
-    jmp bottom
-top:
-    BODY
-    dec ecx
-bottom:
-    cmp ecx, 0
-    jne top
-
-push $addr
-mov $n, %cx
-BODY
-dec %cx
-
-counter.set $100
-ir0.jz  end1
-body1:
-  ...
-  loopz body1
-end1:
-
-    mov ecx, N
-    cmp ecx, 0       ; Must guard against N==0
-    je bottom
-top:
-    BODY
-    loop top         ; built-in dec, test, and jump if not zero
-bottom:
