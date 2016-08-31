@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-extern void eval(const char* code);
+extern int eval(const char* code);
 
 #define EXIT "\x00\x00"
 #define IACC_ADD_R1 "\x01\x00"
@@ -19,6 +19,12 @@ extern void eval(const char* code);
 #define IMOVE_R1_TO_R2 "\x0D\x00"
 #define IMOVE_R2_TO_R0 "\x0E\x00"
 #define IMOVE_R2_TO_R1 "\x0F\x00"
+#define IMOVE_8_TO_R0(BYTE) "\x10\x00" BYTE
+#define IMOVE_8_TO_R1(BYTE) "\x11\x00" BYTE
+#define IMOVE_8_TO_R2(BYTE) "\x12\x00" BYTE
+#define IJMPZ_R0(POS) "\x13\x00" POS
+#define IJMPZ_R1(POS) "\x14\x00" POS
+#define IJMPZ_R2(POS) "\x15\x00" POS
 
 void read_regs(long* dest) {
   long value;
@@ -53,19 +59,20 @@ void reset_regs(void) {
   );
 }
 
+extern int foo;
+
 const char* code =
-  IACC_ADD_R1
-  IACC_ADD_R2
-  IACC_SAVE_R2
-  IACC_LOAD_R1
-  IRESET_R2
-  IMOVE_R0_TO_R2
+  IJMPZ_R1("\x0D\x00\x00\x00\x00\x00\x00\x00")
+  IMOVE_8_TO_R0("\xFF")
+  IMOVE_8_TO_R0("\x03")
   EXIT;
+
+extern const char* code_root;
 
 int main() {
   reset_regs();
 
-  set_ir(1, 10);
+  // set_ir(1, 10);
   set_ir(2, 15);
 
   eval(code);
@@ -76,6 +83,6 @@ int main() {
   for (int i = 0; i < 3; ++i) {
     printf("ir[%d] = %ld\n", i, irs[i]);
   }
-
+  
   return 0;
 }

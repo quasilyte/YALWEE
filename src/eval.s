@@ -1,6 +1,10 @@
 .global eval
 .type eval, @function
 
+.global code_root
+.type code_root, @object
+.size code_root, 8
+
 .macro next_op
   movzwq (%rdi), %rax
   add $2, %rdi
@@ -18,6 +22,10 @@
   pop %rsi 
   pop %rdi
 .endm
+
+.section .bss
+
+code_root: .zero 8
 
 .section .text
 
@@ -43,9 +51,18 @@ op_table:
   .quad op_imove_r1_to_r2 # 13
   .quad op_imove_r2_to_r0 # 14
   .quad op_imove_r2_to_r1 # 15
+  # imove byte immediate  
+  .quad op_imove_8_to_r0 # 16
+  .quad op_imove_8_to_r1 # 17
+  .quad op_imove_8_to_r2 # 18
+  # jmpz
+  .quad op_ijmpz_r0 # 19
+  .quad op_ijmpz_r1 # 20
+  .quad op_ijmpz_r2 # 21
 
 eval:
   push_regs
+  movq %rdi, code_root 
   next_op 
 
   op_exit:
@@ -100,6 +117,50 @@ eval:
   op_imove_r2_to_r1:
     mov %r10, %r9
     next_op
+
+  op_imove_8_to_r0:
+    movzbq (%rdi), %r8
+    inc %rdi
+    next_op
+  op_imove_8_to_r1:
+    movzbq (%rdi), %r9
+    inc %rdi
+    next_op
+  op_imove_8_to_r2:
+    movzbq (%rdi), %r10
+    inc %rdi
+    next_op
+
+  op_ijmpz_r0:
+    cmpq $0, %r8
+    jz ijmpz_r0_set_pc
+    add $8, %rdi
+    next_op
+    ijmpz_r0_set_pc:
+       movq (%rdi), %rax
+       movq code_root, %rdi
+       add %rax, %rdi
+       next_op
+  op_ijmpz_r1:
+    cmpq $0, %r9
+    jz ijmpz_r1_set_pc
+    add $8, %rdi
+    next_op
+    ijmpz_r1_set_pc:
+       movq (%rdi), %rax
+       movq code_root, %rdi
+       add %rax, %rdi
+       next_op
+  op_ijmpz_r2:
+    cmpq $0, %r10
+    jz ijmpz_r2_set_pc
+    add $8, %rdi
+    next_op
+    ijmpz_r2_set_pc:
+       movq (%rdi), %rax
+       movq code_root, %rdi
+       add %rax, %rdi
+       next_op
 
   done:
   pop_regs 
