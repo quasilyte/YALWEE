@@ -1,0 +1,41 @@
+;; registers
+%define R_COUNT 3
+%define R0 r8
+%define R1 r9
+%define R2 r10
+%define R3 r11
+%define R4 r12
+%define R5 r13
+%define R6 r14
+%define R7 r15
+%define R0x32 r8d
+%define R1x32 r9d
+%define R2x32 r10d
+%define R3x32 r11d
+%define R4x32 r12d
+%define R5x32 r13d
+%define R6x32 r14d
+%define R7x32 r15d
+%define R0x16 r8w
+%define R1x16 r8w
+%define R2x16 r8w
+%define R3x16 r8w
+%define R4x16 r8w
+%define R5x16 r8w
+%define R6x16 r8w
+%define R7x16 r8w
+
+;; float registers 
+%define FR_COUNT 3
+%define FR0 xmm0
+%define FR1 xmm1
+%define FR2 xmm2
+%define FR3 xmm3
+%define FR4 xmm4
+%define FR5 xmm5
+%define FR6 xmm6
+%define FR7 xmm7
+
+;; register aliases
+%define ACC R0
+%define FACC FR0
