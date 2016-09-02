@@ -8,20 +8,20 @@ code_root: resq 1
 
 segment .text
 
-%macro NEXT_OP 0
+%macro @next_op 0
   movzx rax, word [rdi]
   add rdi, 2
   jmp [$op_table+(rax*8)]
 %endmacro 
 
-%macro PUSH_REGS 0
+%macro @push_regs 0
   push rbp
   push rbx
   push rsi 
   push rdi
 %endmacro
 
-%macro POP_REGS 0
+%macro @pop_regs 0
   pop rdi
   pop rsi 
   pop rbx
@@ -31,11 +31,11 @@ segment .text
 ;; %1 -- ident
 ;; %2 -- low
 ;; %3 -- high
-%macro OP_LABELS 3
+%macro @op_labels 3
   %assign i %2
 
   %rep %3
-    dq %1%+i  
+    dq @@%1%+i  
     %assign i i+1 
   %endrep
 %endmacro
@@ -44,129 +44,119 @@ segment .text
 ;; %2 -- low 
 ;; %3 -- high
 ;; %4 -- excluded
-%macro OP_EXC_LABELS 4
+%macro @op_exc_labels 4
   %assign i %2
 
   %rep %3
     %if i <> %4
-      dq %1%+i  
+      dq @@%1%+i  
     %endif
     %assign i i+1
   %endrep
 %endmacro
 
-%macro ACC_LABELS 1
-  OP_LABELS %1, 1, R_COUNT-1
+%macro @opcode_handler 2
+  @@op_%1%2:
+    @%1 %2
+    @next_op
 %endmacro
 
-%macro R_LABELS 1
-  OP_LABELS %1, 0, R_COUNT
+%macro @acc_labels 1
+  @op_labels %1, 1, R_COUNT-1
 %endmacro
 
-%macro R_EXC_LABELS 2
-  OP_EXC_LABELS %1, 0, R_COUNT, %2
+%macro @r_labels 1
+  @op_labels %1, 0, R_COUNT
 %endmacro
 
-%macro ACC_ADD_R 1
-  op_acc_add_r%1: 
-    add ACC, R%1 
+%macro @r_exc_labels 2
+  @op_exc_labels %1, 0, R_COUNT, %2
 %endmacro
 
-%macro ACC_LOAD_R 1
-  op_acc_load_r%1:
-    mov ACC, R%1
+%macro @acc_add_r 1
+  add ACC, R%1 
 %endmacro
 
-%macro ACC_SAVE_R 1
-  op_acc_save_r%1:
-    mov R%1, ACC
+%macro @acc_load_r 1
+  mov ACC, R%1
 %endmacro
 
-%macro RESET_R 1
-  op_reset_r%1:
-    xor R%1, R%1
+%macro @acc_save_r 1
+  mov R%1, ACC
 %endmacro
 
-%macro INC_R 1
-  op_inc_r%1:
-    inc R%1
+%macro @reset_r 1
+  xor R%1, R%1
 %endmacro
 
-%macro DEC_R 1
-  op_dec_r%1:
-    dec R%1
+%macro @inc_r 1
+  inc R%1
 %endmacro
 
-%macro MOVE_R0_TO_R 1
-  op_move_r0_to_r%1:
-    mov R%1, R0
+%macro @dec_r 1
+  dec R%1
 %endmacro
 
-%macro MOVE_R1_TO_R 1
-  op_move_r1_to_r%1:
-    mov R%1, R1
+%macro @move_r0_to_r 1
+  mov R%1, R0
 %endmacro
 
-%macro MOVE_R2_TO_R 1
-  op_move_r2_to_r%1:
-    mov R%1, R2
+%macro @move_r1_to_r 1
+  mov R%1, R1
 %endmacro
 
-%macro MOVE_8_TO_R 1
-  op_move_8_to_r%1:
-    movzx rax, byte [rdi]
-    inc rdi
-    add R%1, rax 
+%macro @move_r2_to_r 1
+  mov R%1, R2
 %endmacro
 
-%macro MOVE_16_TO_R 1
-  op_move_16_to_r%1:
-    mov ax, word [rdi]
-    add rdi, 2
-    add R%1x16, ax 
+%macro @move_8_to_r 1
+  movzx rax, byte [rdi]
+  inc rdi
+  add R%1, rax 
 %endmacro
 
-%macro MOVE_32_TO_R 1
-  op_move_32_to_r%1:
-    mov eax, dword [rdi]
-    add rdi, 4
-    add R%1x32, eax 
+%macro @move_16_to_r 1
+  mov ax, word [rdi]
+  add rdi, 2
+  add R%1x16, ax 
 %endmacro
 
-%macro MOVE_64_TO_R 1
-  op_move_64_to_r%1:
-    mov rax, qword [rdi]
-    add rdi, 8
-    add R%1, rax 
+%macro @move_32_to_r 1
+  mov eax, dword [rdi]
+  add rdi, 4
+  add R%1x32, eax 
 %endmacro
 
-%macro ACC_OPS 1
+%macro @move_64_to_r 1
+  mov rax, qword [rdi]
+  add rdi, 8
+  add R%1, rax 
+%endmacro
+
+%macro @acc_ops 1
   %assign i 1
 
   %rep R_COUNT-1
-    %1 i
-    NEXT_OP
+    @opcode_handler %1, i
     %assign i i+1 
   %endrep
 %endmacro
 
-%macro R_OPS 1
+%macro @r_ops 1
   %assign i 0
 
   %rep R_COUNT
-    %1 i
-    NEXT_OP
+    @opcode_handler %1, i
     %assign i i+1 
   %endrep
 %endmacro
 
-%macro R_EXC_OPS 2
+%macro @r_exc_ops 2
   %assign i 0
 
   %rep R_COUNT
     %if i <> %2
-      %1 i
-      NEXT_OP
+      @opcode_handler %1, i
     %endif
     %assign i i+1 
   %endrep
@@ -174,43 +164,43 @@ segment .text
 
 $op_table:
   dq op_exit
-  ACC_LABELS op_acc_add_r
-  ACC_LABELS op_acc_load_r
-  ACC_LABELS op_acc_save_r
-  R_LABELS op_reset_r
-  R_LABELS op_inc_r
-  R_LABELS op_dec_r
-  R_LABELS op_move_8_to_r
-  R_LABELS op_move_16_to_r
-  R_LABELS op_move_32_to_r
-  R_LABELS op_move_64_to_r
-  R_EXC_LABELS op_move_r0_to_r, 0
-  R_EXC_LABELS op_move_r1_to_r, 1
-  R_EXC_LABELS op_move_r2_to_r, 2
+  @acc_labels op_acc_add_r
+  @acc_labels op_acc_load_r
+  @acc_labels op_acc_save_r
+  @r_labels op_reset_r
+  @r_labels op_inc_r
+  @r_labels op_dec_r
+  @r_labels op_move_8_to_r
+  @r_labels op_move_16_to_r
+  @r_labels op_move_32_to_r
+  @r_labels op_move_64_to_r
+  @r_exc_labels op_move_r0_to_r, 0
+  @r_exc_labels op_move_r1_to_r, 1
+  @r_exc_labels op_move_r2_to_r, 2
 
 eval:
-  PUSH_REGS
+  @push_regs
   mov [code_root], rdi
-  NEXT_OP
+  @next_op
 
   op_exit: jmp done
 
   ;; acc ops 
-  ACC_OPS ACC_ADD_R
-  ACC_OPS ACC_LOAD_R
-  ACC_OPS ACC_SAVE_R
+  @acc_ops acc_add_r
+  @acc_ops acc_load_r
+  @acc_ops acc_save_r
   ;; r ops
-  R_OPS RESET_R
-  R_OPS INC_R
-  R_OPS DEC_R
-  R_OPS MOVE_8_TO_R
-  R_OPS MOVE_16_TO_R
-  R_OPS MOVE_32_TO_R
-  R_OPS MOVE_64_TO_R
-  R_EXC_OPS MOVE_R0_TO_R, 0
-  R_EXC_OPS MOVE_R1_TO_R, 1
-  R_EXC_OPS MOVE_R2_TO_R, 2
+  @r_ops reset_r
+  @r_ops inc_r
+  @r_ops dec_r
+  @r_ops move_8_to_r
+  @r_ops move_16_to_r
+  @r_ops move_32_to_r
+  @r_ops move_64_to_r
+  @r_exc_ops move_r0_to_r, 0
+  @r_exc_ops move_r1_to_r, 1
+  @r_exc_ops move_r2_to_r, 2
 
   done:
-    POP_REGS
+    @pop_regs
     ret
