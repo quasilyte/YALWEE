@@ -90,11 +90,20 @@
 | pop(8;32;64)_to_r_x[3-8] | pop x vals into last x regs | 18 |
 
 #+CAPTION: jump ops
-| Syntax                                    | Pseudocode / description                 | # |
-|-------------------------------------------+------------------------------------------+---|
-| jump @offset:32                          | goto label(offset)                       | 1 |
-| jump_back @offset:32                     | goto label(pc - offset)                  | 1 |
-| jump_forward @offset:32                  | goto label(pc + offset)                  | 1 |
+| Syntax                                   | Pseudocode / description                 | # |
+|------------------------------------------+------------------------------------------+---|
+| jump @offset:32                          | goto label(@offset)                      | 1 |
+| jump_back @offset:32                     | goto label(pc - @offset)                 | 1 |
+| jump_forward @offset:32                  | goto label(pc + @offset)                 | 1 |
 | jump_if(z;nz;gtz;ltz) @offset:32         | jump if acc satisfies given cond         | 4 |
 | jump_back_if(z;nz;gtz;ltz) @offset:32    | jump back if acc satisfies given cond    | 4 |
 | jump_forward_if(z;nz;gtz;ltz) @offset:32 | jump forward if acc satisfies given cond | 4 |
+
+#+CAPTION: loop ops
+| Syntax         | Pseudocode / description                       | # |
+|----------------+------------------------------------------------+---|
+| for_nz @step:8 | repeat code until end_for_nz while cx not zero | 1 |
+| break_for_nz   | break current for_nz loop                      | 1 |
+
+
+
