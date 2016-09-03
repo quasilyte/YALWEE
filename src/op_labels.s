@@ -1,408 +1,408 @@
 ;; this file was generated, do not edit by hand
-dq @@op_inc_r0_by_1
-dq @@op_inc_r1_by_1
-dq @@op_inc_r2_by_1
-dq @@op_inc_r3_by_1
-dq @@op_inc_r4_by_1
-dq @@op_inc_r5_by_1
-dq @@op_inc_r6_by_1
-dq @@op_inc_r7_by_1
-dq @@op_inc_cx_by_1
-dq @@op_inc_r0_by_r0
-dq @@op_inc_r0_by_r1
-dq @@op_inc_r0_by_r2
-dq @@op_inc_r0_by_r3
-dq @@op_inc_r0_by_r4
-dq @@op_inc_r0_by_r5
-dq @@op_inc_r0_by_r6
-dq @@op_inc_r0_by_r7
-dq @@op_inc_cx_by_r0
-dq @@op_inc_cx_by_r1
-dq @@op_inc_cx_by_r2
-dq @@op_inc_cx_by_r3
-dq @@op_inc_cx_by_r4
-dq @@op_inc_cx_by_r5
-dq @@op_inc_cx_by_r6
-dq @@op_inc_cx_by_r7
-dq @@op_inc_r0_by_imm8
-dq @@op_inc_r1_by_imm8
-dq @@op_inc_r2_by_imm8
-dq @@op_inc_r3_by_imm8
-dq @@op_inc_r4_by_imm8
-dq @@op_inc_r5_by_imm8
-dq @@op_inc_r6_by_imm8
-dq @@op_inc_r7_by_imm8
-dq @@op_inc_r0_by_imm32
-dq @@op_inc_r1_by_imm32
-dq @@op_inc_r2_by_imm32
-dq @@op_inc_r3_by_imm32
-dq @@op_inc_r4_by_imm32
-dq @@op_inc_r5_by_imm32
-dq @@op_inc_r6_by_imm32
-dq @@op_inc_r7_by_imm32
-dq @@op_inc_r0_by_imm64
-dq @@op_inc_r1_by_imm64
-dq @@op_inc_r2_by_imm64
-dq @@op_inc_r3_by_imm64
-dq @@op_inc_r4_by_imm64
-dq @@op_inc_r5_by_imm64
-dq @@op_inc_r6_by_imm64
-dq @@op_inc_r7_by_imm64
-dq @@op_inc_cx_by_imm8
-dq @@op_inc_cx_by_imm32
-dq @@op_inc_cx_by_imm64
-dq @@op_dec_r0_by_1
-dq @@op_dec_r1_by_1
-dq @@op_dec_r2_by_1
-dq @@op_dec_r3_by_1
-dq @@op_dec_r4_by_1
-dq @@op_dec_r5_by_1
-dq @@op_dec_r6_by_1
-dq @@op_dec_r7_by_1
-dq @@op_dec_cx_by_1
-dq @@op_dec_r0_by_r0
-dq @@op_dec_r0_by_r1
-dq @@op_dec_r0_by_r2
-dq @@op_dec_r0_by_r3
-dq @@op_dec_r0_by_r4
-dq @@op_dec_r0_by_r5
-dq @@op_dec_r0_by_r6
-dq @@op_dec_r0_by_r7
-dq @@op_dec_cx_by_r0
-dq @@op_dec_cx_by_r1
-dq @@op_dec_cx_by_r2
-dq @@op_dec_cx_by_r3
-dq @@op_dec_cx_by_r4
-dq @@op_dec_cx_by_r5
-dq @@op_dec_cx_by_r6
-dq @@op_dec_cx_by_r7
-dq @@op_dec_r0_by_imm8
-dq @@op_dec_r1_by_imm8
-dq @@op_dec_r2_by_imm8
-dq @@op_dec_r3_by_imm8
-dq @@op_dec_r4_by_imm8
-dq @@op_dec_r5_by_imm8
-dq @@op_dec_r6_by_imm8
-dq @@op_dec_r7_by_imm8
-dq @@op_dec_r0_by_imm32
-dq @@op_dec_r1_by_imm32
-dq @@op_dec_r2_by_imm32
-dq @@op_dec_r3_by_imm32
-dq @@op_dec_r4_by_imm32
-dq @@op_dec_r5_by_imm32
-dq @@op_dec_r6_by_imm32
-dq @@op_dec_r7_by_imm32
-dq @@op_dec_r0_by_imm64
-dq @@op_dec_r1_by_imm64
-dq @@op_dec_r2_by_imm64
-dq @@op_dec_r3_by_imm64
-dq @@op_dec_r4_by_imm64
-dq @@op_dec_r5_by_imm64
-dq @@op_dec_r6_by_imm64
-dq @@op_dec_r7_by_imm64
-dq @@op_dec_cx_by_imm8
-dq @@op_dec_cx_by_imm32
-dq @@op_dec_cx_by_imm64
-dq @@op_decrev_r0_by_r0
-dq @@op_decrev_r0_by_r1
-dq @@op_decrev_r0_by_r2
-dq @@op_decrev_r0_by_r3
-dq @@op_decrev_r0_by_r4
-dq @@op_decrev_r0_by_r5
-dq @@op_decrev_r0_by_r6
-dq @@op_decrev_r0_by_r7
-dq @@op_decrev_r0_by_imm8
-dq @@op_decrev_r1_by_imm8
-dq @@op_decrev_r2_by_imm8
-dq @@op_decrev_r3_by_imm8
-dq @@op_decrev_r4_by_imm8
-dq @@op_decrev_r5_by_imm8
-dq @@op_decrev_r6_by_imm8
-dq @@op_decrev_r7_by_imm8
-dq @@op_decrev_r0_by_imm32
-dq @@op_decrev_r1_by_imm32
-dq @@op_decrev_r2_by_imm32
-dq @@op_decrev_r3_by_imm32
-dq @@op_decrev_r4_by_imm32
-dq @@op_decrev_r5_by_imm32
-dq @@op_decrev_r6_by_imm32
-dq @@op_decrev_r7_by_imm32
-dq @@op_decrev_r0_by_imm64
-dq @@op_decrev_r1_by_imm64
-dq @@op_decrev_r2_by_imm64
-dq @@op_decrev_r3_by_imm64
-dq @@op_decrev_r4_by_imm64
-dq @@op_decrev_r5_by_imm64
-dq @@op_decrev_r6_by_imm64
-dq @@op_decrev_r7_by_imm64
-dq @@op_bitor_r0_by_r0
-dq @@op_bitor_r0_by_r1
-dq @@op_bitor_r0_by_r2
-dq @@op_bitor_r0_by_r3
-dq @@op_bitor_r0_by_r4
-dq @@op_bitor_r0_by_r5
-dq @@op_bitor_r0_by_r6
-dq @@op_bitor_r0_by_r7
-dq @@op_bitor_r0_by_imm8
-dq @@op_bitor_r0_by_imm32
-dq @@op_bitor_r0_by_imm64
-dq @@op_bitand_r0_by_r0
-dq @@op_bitand_r0_by_r1
-dq @@op_bitand_r0_by_r2
-dq @@op_bitand_r0_by_r3
-dq @@op_bitand_r0_by_r4
-dq @@op_bitand_r0_by_r5
-dq @@op_bitand_r0_by_r6
-dq @@op_bitand_r0_by_r7
-dq @@op_bitand_r0_by_imm8
-dq @@op_bitand_r0_by_imm32
-dq @@op_bitand_r0_by_imm64
-dq @@op_mul_r0_by_r0
-dq @@op_mul_r0_by_r1
-dq @@op_mul_r0_by_r2
-dq @@op_mul_r0_by_r3
-dq @@op_mul_r0_by_r4
-dq @@op_mul_r0_by_r5
-dq @@op_mul_r0_by_r6
-dq @@op_mul_r0_by_r7
-dq @@op_mul_r0_by_imm8
-dq @@op_mul_r1_by_imm8
-dq @@op_mul_r2_by_imm8
-dq @@op_mul_r3_by_imm8
-dq @@op_mul_r4_by_imm8
-dq @@op_mul_r5_by_imm8
-dq @@op_mul_r6_by_imm8
-dq @@op_mul_r7_by_imm8
-dq @@op_mul_r0_by_imm32
-dq @@op_mul_r1_by_imm32
-dq @@op_mul_r2_by_imm32
-dq @@op_mul_r3_by_imm32
-dq @@op_mul_r4_by_imm32
-dq @@op_mul_r5_by_imm32
-dq @@op_mul_r6_by_imm32
-dq @@op_mul_r7_by_imm32
-dq @@op_mul_r0_by_imm64
-dq @@op_mul_r1_by_imm64
-dq @@op_mul_r2_by_imm64
-dq @@op_mul_r3_by_imm64
-dq @@op_mul_r4_by_imm64
-dq @@op_mul_r5_by_imm64
-dq @@op_mul_r6_by_imm64
-dq @@op_mul_r7_by_imm64
-dq @@op_div_r0_by_r0
-dq @@op_div_r0_by_r1
-dq @@op_div_r0_by_r2
-dq @@op_div_r0_by_r3
-dq @@op_div_r0_by_r4
-dq @@op_div_r0_by_r5
-dq @@op_div_r0_by_r6
-dq @@op_div_r0_by_r7
-dq @@op_div_r0_by_imm8
-dq @@op_div_r1_by_imm8
-dq @@op_div_r2_by_imm8
-dq @@op_div_r3_by_imm8
-dq @@op_div_r4_by_imm8
-dq @@op_div_r5_by_imm8
-dq @@op_div_r6_by_imm8
-dq @@op_div_r7_by_imm8
-dq @@op_div_r0_by_imm32
-dq @@op_div_r1_by_imm32
-dq @@op_div_r2_by_imm32
-dq @@op_div_r3_by_imm32
-dq @@op_div_r4_by_imm32
-dq @@op_div_r5_by_imm32
-dq @@op_div_r6_by_imm32
-dq @@op_div_r7_by_imm32
-dq @@op_div_r0_by_imm64
-dq @@op_div_r1_by_imm64
-dq @@op_div_r2_by_imm64
-dq @@op_div_r3_by_imm64
-dq @@op_div_r4_by_imm64
-dq @@op_div_r5_by_imm64
-dq @@op_div_r6_by_imm64
-dq @@op_div_r7_by_imm64
-dq @@op_divrev_r0_by_r0
-dq @@op_divrev_r0_by_r1
-dq @@op_divrev_r0_by_r2
-dq @@op_divrev_r0_by_r3
-dq @@op_divrev_r0_by_r4
-dq @@op_divrev_r0_by_r5
-dq @@op_divrev_r0_by_r6
-dq @@op_divrev_r0_by_r7
-dq @@op_divrev_r0_by_imm8
-dq @@op_divrev_r1_by_imm8
-dq @@op_divrev_r2_by_imm8
-dq @@op_divrev_r3_by_imm8
-dq @@op_divrev_r4_by_imm8
-dq @@op_divrev_r5_by_imm8
-dq @@op_divrev_r6_by_imm8
-dq @@op_divrev_r7_by_imm8
-dq @@op_divrev_r0_by_imm32
-dq @@op_divrev_r1_by_imm32
-dq @@op_divrev_r2_by_imm32
-dq @@op_divrev_r3_by_imm32
-dq @@op_divrev_r4_by_imm32
-dq @@op_divrev_r5_by_imm32
-dq @@op_divrev_r6_by_imm32
-dq @@op_divrev_r7_by_imm32
-dq @@op_divrev_r0_by_imm64
-dq @@op_divrev_r1_by_imm64
-dq @@op_divrev_r2_by_imm64
-dq @@op_divrev_r3_by_imm64
-dq @@op_divrev_r4_by_imm64
-dq @@op_divrev_r5_by_imm64
-dq @@op_divrev_r6_by_imm64
-dq @@op_divrev_r7_by_imm64
-dq @@op_mod_r0_by_r0
-dq @@op_mod_r0_by_r1
-dq @@op_mod_r0_by_r2
-dq @@op_mod_r0_by_r3
-dq @@op_mod_r0_by_r4
-dq @@op_mod_r0_by_r5
-dq @@op_mod_r0_by_r6
-dq @@op_mod_r0_by_r7
-dq @@op_mod_r0_by_imm8
-dq @@op_mod_r1_by_imm8
-dq @@op_mod_r2_by_imm8
-dq @@op_mod_r3_by_imm8
-dq @@op_mod_r4_by_imm8
-dq @@op_mod_r5_by_imm8
-dq @@op_mod_r6_by_imm8
-dq @@op_mod_r7_by_imm8
-dq @@op_mod_r0_by_imm32
-dq @@op_mod_r1_by_imm32
-dq @@op_mod_r2_by_imm32
-dq @@op_mod_r3_by_imm32
-dq @@op_mod_r4_by_imm32
-dq @@op_mod_r5_by_imm32
-dq @@op_mod_r6_by_imm32
-dq @@op_mod_r7_by_imm32
-dq @@op_mod_r0_by_imm64
-dq @@op_mod_r1_by_imm64
-dq @@op_mod_r2_by_imm64
-dq @@op_mod_r3_by_imm64
-dq @@op_mod_r4_by_imm64
-dq @@op_mod_r5_by_imm64
-dq @@op_mod_r6_by_imm64
-dq @@op_mod_r7_by_imm64
-dq @@op_modrev_r0_by_r0
-dq @@op_modrev_r0_by_r1
-dq @@op_modrev_r0_by_r2
-dq @@op_modrev_r0_by_r3
-dq @@op_modrev_r0_by_r4
-dq @@op_modrev_r0_by_r5
-dq @@op_modrev_r0_by_r6
-dq @@op_modrev_r0_by_r7
-dq @@op_modrev_r0_by_imm8
-dq @@op_modrev_r1_by_imm8
-dq @@op_modrev_r2_by_imm8
-dq @@op_modrev_r3_by_imm8
-dq @@op_modrev_r4_by_imm8
-dq @@op_modrev_r5_by_imm8
-dq @@op_modrev_r6_by_imm8
-dq @@op_modrev_r7_by_imm8
-dq @@op_modrev_r0_by_imm32
-dq @@op_modrev_r1_by_imm32
-dq @@op_modrev_r2_by_imm32
-dq @@op_modrev_r3_by_imm32
-dq @@op_modrev_r4_by_imm32
-dq @@op_modrev_r5_by_imm32
-dq @@op_modrev_r6_by_imm32
-dq @@op_modrev_r7_by_imm32
-dq @@op_modrev_r0_by_imm64
-dq @@op_modrev_r1_by_imm64
-dq @@op_modrev_r2_by_imm64
-dq @@op_modrev_r3_by_imm64
-dq @@op_modrev_r4_by_imm64
-dq @@op_modrev_r5_by_imm64
-dq @@op_modrev_r6_by_imm64
-dq @@op_modrev_r7_by_imm64
-dq @@op_fill_r0_by_0
-dq @@op_fill_r1_by_0
-dq @@op_fill_r2_by_0
-dq @@op_fill_r3_by_0
-dq @@op_fill_r4_by_0
-dq @@op_fill_r5_by_0
-dq @@op_fill_r6_by_0
-dq @@op_fill_r7_by_0
-dq @@op_fill_cx_by_0
-dq @@op_fill_r_x3_by_0
-dq @@op_fill_r_x4_by_0
-dq @@op_fill_r_x5_by_0
-dq @@op_fill_r_x6_by_0
-dq @@op_fill_r_x7_by_0
-dq @@op_fill_r_x8_by_0
-dq @@op_fill_r0_by_imm8
-dq @@op_fill_r1_by_imm8
-dq @@op_fill_r2_by_imm8
-dq @@op_fill_r3_by_imm8
-dq @@op_fill_r4_by_imm8
-dq @@op_fill_r5_by_imm8
-dq @@op_fill_r6_by_imm8
-dq @@op_fill_r7_by_imm8
-dq @@op_fill_r0_by_imm32
-dq @@op_fill_r1_by_imm32
-dq @@op_fill_r2_by_imm32
-dq @@op_fill_r3_by_imm32
-dq @@op_fill_r4_by_imm32
-dq @@op_fill_r5_by_imm32
-dq @@op_fill_r6_by_imm32
-dq @@op_fill_r7_by_imm32
-dq @@op_fill_r0_by_imm64
-dq @@op_fill_r1_by_imm64
-dq @@op_fill_r2_by_imm64
-dq @@op_fill_r3_by_imm64
-dq @@op_fill_r4_by_imm64
-dq @@op_fill_r5_by_imm64
-dq @@op_fill_r6_by_imm64
-dq @@op_fill_r7_by_imm64
-dq @@op_fill_r0_by_counter
-dq @@op_fill_r1_by_counter
-dq @@op_fill_r2_by_counter
-dq @@op_fill_r3_by_counter
-dq @@op_fill_r4_by_counter
-dq @@op_fill_r5_by_counter
-dq @@op_fill_r6_by_counter
-dq @@op_fill_r7_by_counter
-dq @@op_fill_counter_by_r0
-dq @@op_fill_counter_by_r1
-dq @@op_fill_counter_by_r2
-dq @@op_fill_counter_by_r3
-dq @@op_fill_counter_by_r4
-dq @@op_fill_counter_by_r5
-dq @@op_fill_counter_by_r6
-dq @@op_fill_counter_by_r7
-dq @@op_abs_r0
-dq @@op_abs_r1
-dq @@op_abs_r2
-dq @@op_abs_r3
-dq @@op_abs_r4
-dq @@op_abs_r5
-dq @@op_abs_r6
-dq @@op_abs_r7
-dq @@op_neg_r0
-dq @@op_neg_r1
-dq @@op_neg_r2
-dq @@op_neg_r3
-dq @@op_neg_r4
-dq @@op_neg_r5
-dq @@op_neg_r6
-dq @@op_neg_r7
-dq @@op_jump
-dq @@op_jump_back
-dq @@op_jump_forward
-dq @@op_jump_ifz
-dq @@op_jump_ifnz
-dq @@op_jump_ifgtz
-dq @@op_jump_ifltz
-dq @@op_jump_back_ifz
-dq @@op_jump_back_ifnz
-dq @@op_jump_back_ifgtz
-dq @@op_jump_back_ifltz
-dq @@op_jump_forward_ifz
-dq @@op_jump_forward_ifnz
-dq @@op_jump_forward_ifgtz
-dq @@op_jump_forward_ifltz
-dq @@op_for_nz
-dq @@op_break_for_nz
-dq @@op_end_for_nz
+dq @@op_inc_r0_by_1 ;; 0
+dq @@op_inc_r1_by_1 ;; 1
+dq @@op_inc_r2_by_1 ;; 2
+dq @@op_inc_r3_by_1 ;; 3
+dq @@op_inc_r4_by_1 ;; 4
+dq @@op_inc_r5_by_1 ;; 5
+dq @@op_inc_r6_by_1 ;; 6
+dq @@op_inc_r7_by_1 ;; 7
+dq @@op_inc_cx_by_1 ;; 8
+dq @@op_inc_r0_by_r0 ;; 9
+dq @@op_inc_r0_by_r1 ;; 10
+dq @@op_inc_r0_by_r2 ;; 11
+dq @@op_inc_r0_by_r3 ;; 12
+dq @@op_inc_r0_by_r4 ;; 13
+dq @@op_inc_r0_by_r5 ;; 14
+dq @@op_inc_r0_by_r6 ;; 15
+dq @@op_inc_r0_by_r7 ;; 16
+dq @@op_inc_cx_by_r0 ;; 17
+dq @@op_inc_cx_by_r1 ;; 18
+dq @@op_inc_cx_by_r2 ;; 19
+dq @@op_inc_cx_by_r3 ;; 20
+dq @@op_inc_cx_by_r4 ;; 21
+dq @@op_inc_cx_by_r5 ;; 22
+dq @@op_inc_cx_by_r6 ;; 23
+dq @@op_inc_cx_by_r7 ;; 24
+dq @@op_inc_r0_by_imm8 ;; 25
+dq @@op_inc_r1_by_imm8 ;; 26
+dq @@op_inc_r2_by_imm8 ;; 27
+dq @@op_inc_r3_by_imm8 ;; 28
+dq @@op_inc_r4_by_imm8 ;; 29
+dq @@op_inc_r5_by_imm8 ;; 30
+dq @@op_inc_r6_by_imm8 ;; 31
+dq @@op_inc_r7_by_imm8 ;; 32
+dq @@op_inc_r0_by_imm32 ;; 33
+dq @@op_inc_r1_by_imm32 ;; 34
+dq @@op_inc_r2_by_imm32 ;; 35
+dq @@op_inc_r3_by_imm32 ;; 36
+dq @@op_inc_r4_by_imm32 ;; 37
+dq @@op_inc_r5_by_imm32 ;; 38
+dq @@op_inc_r6_by_imm32 ;; 39
+dq @@op_inc_r7_by_imm32 ;; 40
+dq @@op_inc_r0_by_imm64 ;; 41
+dq @@op_inc_r1_by_imm64 ;; 42
+dq @@op_inc_r2_by_imm64 ;; 43
+dq @@op_inc_r3_by_imm64 ;; 44
+dq @@op_inc_r4_by_imm64 ;; 45
+dq @@op_inc_r5_by_imm64 ;; 46
+dq @@op_inc_r6_by_imm64 ;; 47
+dq @@op_inc_r7_by_imm64 ;; 48
+dq @@op_inc_cx_by_imm8 ;; 49
+dq @@op_inc_cx_by_imm32 ;; 50
+dq @@op_inc_cx_by_imm64 ;; 51
+dq @@op_dec_r0_by_1 ;; 52
+dq @@op_dec_r1_by_1 ;; 53
+dq @@op_dec_r2_by_1 ;; 54
+dq @@op_dec_r3_by_1 ;; 55
+dq @@op_dec_r4_by_1 ;; 56
+dq @@op_dec_r5_by_1 ;; 57
+dq @@op_dec_r6_by_1 ;; 58
+dq @@op_dec_r7_by_1 ;; 59
+dq @@op_dec_cx_by_1 ;; 60
+dq @@op_dec_r0_by_r0 ;; 61
+dq @@op_dec_r0_by_r1 ;; 62
+dq @@op_dec_r0_by_r2 ;; 63
+dq @@op_dec_r0_by_r3 ;; 64
+dq @@op_dec_r0_by_r4 ;; 65
+dq @@op_dec_r0_by_r5 ;; 66
+dq @@op_dec_r0_by_r6 ;; 67
+dq @@op_dec_r0_by_r7 ;; 68
+dq @@op_dec_cx_by_r0 ;; 69
+dq @@op_dec_cx_by_r1 ;; 70
+dq @@op_dec_cx_by_r2 ;; 71
+dq @@op_dec_cx_by_r3 ;; 72
+dq @@op_dec_cx_by_r4 ;; 73
+dq @@op_dec_cx_by_r5 ;; 74
+dq @@op_dec_cx_by_r6 ;; 75
+dq @@op_dec_cx_by_r7 ;; 76
+dq @@op_dec_r0_by_imm8 ;; 77
+dq @@op_dec_r1_by_imm8 ;; 78
+dq @@op_dec_r2_by_imm8 ;; 79
+dq @@op_dec_r3_by_imm8 ;; 80
+dq @@op_dec_r4_by_imm8 ;; 81
+dq @@op_dec_r5_by_imm8 ;; 82
+dq @@op_dec_r6_by_imm8 ;; 83
+dq @@op_dec_r7_by_imm8 ;; 84
+dq @@op_dec_r0_by_imm32 ;; 85
+dq @@op_dec_r1_by_imm32 ;; 86
+dq @@op_dec_r2_by_imm32 ;; 87
+dq @@op_dec_r3_by_imm32 ;; 88
+dq @@op_dec_r4_by_imm32 ;; 89
+dq @@op_dec_r5_by_imm32 ;; 90
+dq @@op_dec_r6_by_imm32 ;; 91
+dq @@op_dec_r7_by_imm32 ;; 92
+dq @@op_dec_r0_by_imm64 ;; 93
+dq @@op_dec_r1_by_imm64 ;; 94
+dq @@op_dec_r2_by_imm64 ;; 95
+dq @@op_dec_r3_by_imm64 ;; 96
+dq @@op_dec_r4_by_imm64 ;; 97
+dq @@op_dec_r5_by_imm64 ;; 98
+dq @@op_dec_r6_by_imm64 ;; 99
+dq @@op_dec_r7_by_imm64 ;; 100
+dq @@op_dec_cx_by_imm8 ;; 101
+dq @@op_dec_cx_by_imm32 ;; 102
+dq @@op_dec_cx_by_imm64 ;; 103
+dq @@op_decrev_r0_by_r0 ;; 104
+dq @@op_decrev_r0_by_r1 ;; 105
+dq @@op_decrev_r0_by_r2 ;; 106
+dq @@op_decrev_r0_by_r3 ;; 107
+dq @@op_decrev_r0_by_r4 ;; 108
+dq @@op_decrev_r0_by_r5 ;; 109
+dq @@op_decrev_r0_by_r6 ;; 110
+dq @@op_decrev_r0_by_r7 ;; 111
+dq @@op_decrev_r0_by_imm8 ;; 112
+dq @@op_decrev_r1_by_imm8 ;; 113
+dq @@op_decrev_r2_by_imm8 ;; 114
+dq @@op_decrev_r3_by_imm8 ;; 115
+dq @@op_decrev_r4_by_imm8 ;; 116
+dq @@op_decrev_r5_by_imm8 ;; 117
+dq @@op_decrev_r6_by_imm8 ;; 118
+dq @@op_decrev_r7_by_imm8 ;; 119
+dq @@op_decrev_r0_by_imm32 ;; 120
+dq @@op_decrev_r1_by_imm32 ;; 121
+dq @@op_decrev_r2_by_imm32 ;; 122
+dq @@op_decrev_r3_by_imm32 ;; 123
+dq @@op_decrev_r4_by_imm32 ;; 124
+dq @@op_decrev_r5_by_imm32 ;; 125
+dq @@op_decrev_r6_by_imm32 ;; 126
+dq @@op_decrev_r7_by_imm32 ;; 127
+dq @@op_decrev_r0_by_imm64 ;; 128
+dq @@op_decrev_r1_by_imm64 ;; 129
+dq @@op_decrev_r2_by_imm64 ;; 130
+dq @@op_decrev_r3_by_imm64 ;; 131
+dq @@op_decrev_r4_by_imm64 ;; 132
+dq @@op_decrev_r5_by_imm64 ;; 133
+dq @@op_decrev_r6_by_imm64 ;; 134
+dq @@op_decrev_r7_by_imm64 ;; 135
+dq @@op_bitor_r0_by_r0 ;; 136
+dq @@op_bitor_r0_by_r1 ;; 137
+dq @@op_bitor_r0_by_r2 ;; 138
+dq @@op_bitor_r0_by_r3 ;; 139
+dq @@op_bitor_r0_by_r4 ;; 140
+dq @@op_bitor_r0_by_r5 ;; 141
+dq @@op_bitor_r0_by_r6 ;; 142
+dq @@op_bitor_r0_by_r7 ;; 143
+dq @@op_bitor_r0_by_imm8 ;; 144
+dq @@op_bitor_r0_by_imm32 ;; 145
+dq @@op_bitor_r0_by_imm64 ;; 146
+dq @@op_bitand_r0_by_r0 ;; 147
+dq @@op_bitand_r0_by_r1 ;; 148
+dq @@op_bitand_r0_by_r2 ;; 149
+dq @@op_bitand_r0_by_r3 ;; 150
+dq @@op_bitand_r0_by_r4 ;; 151
+dq @@op_bitand_r0_by_r5 ;; 152
+dq @@op_bitand_r0_by_r6 ;; 153
+dq @@op_bitand_r0_by_r7 ;; 154
+dq @@op_bitand_r0_by_imm8 ;; 155
+dq @@op_bitand_r0_by_imm32 ;; 156
+dq @@op_bitand_r0_by_imm64 ;; 157
+dq @@op_mul_r0_by_r0 ;; 158
+dq @@op_mul_r0_by_r1 ;; 159
+dq @@op_mul_r0_by_r2 ;; 160
+dq @@op_mul_r0_by_r3 ;; 161
+dq @@op_mul_r0_by_r4 ;; 162
+dq @@op_mul_r0_by_r5 ;; 163
+dq @@op_mul_r0_by_r6 ;; 164
+dq @@op_mul_r0_by_r7 ;; 165
+dq @@op_mul_r0_by_imm8 ;; 166
+dq @@op_mul_r1_by_imm8 ;; 167
+dq @@op_mul_r2_by_imm8 ;; 168
+dq @@op_mul_r3_by_imm8 ;; 169
+dq @@op_mul_r4_by_imm8 ;; 170
+dq @@op_mul_r5_by_imm8 ;; 171
+dq @@op_mul_r6_by_imm8 ;; 172
+dq @@op_mul_r7_by_imm8 ;; 173
+dq @@op_mul_r0_by_imm32 ;; 174
+dq @@op_mul_r1_by_imm32 ;; 175
+dq @@op_mul_r2_by_imm32 ;; 176
+dq @@op_mul_r3_by_imm32 ;; 177
+dq @@op_mul_r4_by_imm32 ;; 178
+dq @@op_mul_r5_by_imm32 ;; 179
+dq @@op_mul_r6_by_imm32 ;; 180
+dq @@op_mul_r7_by_imm32 ;; 181
+dq @@op_mul_r0_by_imm64 ;; 182
+dq @@op_mul_r1_by_imm64 ;; 183
+dq @@op_mul_r2_by_imm64 ;; 184
+dq @@op_mul_r3_by_imm64 ;; 185
+dq @@op_mul_r4_by_imm64 ;; 186
+dq @@op_mul_r5_by_imm64 ;; 187
+dq @@op_mul_r6_by_imm64 ;; 188
+dq @@op_mul_r7_by_imm64 ;; 189
+dq @@op_div_r0_by_r0 ;; 190
+dq @@op_div_r0_by_r1 ;; 191
+dq @@op_div_r0_by_r2 ;; 192
+dq @@op_div_r0_by_r3 ;; 193
+dq @@op_div_r0_by_r4 ;; 194
+dq @@op_div_r0_by_r5 ;; 195
+dq @@op_div_r0_by_r6 ;; 196
+dq @@op_div_r0_by_r7 ;; 197
+dq @@op_div_r0_by_imm8 ;; 198
+dq @@op_div_r1_by_imm8 ;; 199
+dq @@op_div_r2_by_imm8 ;; 200
+dq @@op_div_r3_by_imm8 ;; 201
+dq @@op_div_r4_by_imm8 ;; 202
+dq @@op_div_r5_by_imm8 ;; 203
+dq @@op_div_r6_by_imm8 ;; 204
+dq @@op_div_r7_by_imm8 ;; 205
+dq @@op_div_r0_by_imm32 ;; 206
+dq @@op_div_r1_by_imm32 ;; 207
+dq @@op_div_r2_by_imm32 ;; 208
+dq @@op_div_r3_by_imm32 ;; 209
+dq @@op_div_r4_by_imm32 ;; 210
+dq @@op_div_r5_by_imm32 ;; 211
+dq @@op_div_r6_by_imm32 ;; 212
+dq @@op_div_r7_by_imm32 ;; 213
+dq @@op_div_r0_by_imm64 ;; 214
+dq @@op_div_r1_by_imm64 ;; 215
+dq @@op_div_r2_by_imm64 ;; 216
+dq @@op_div_r3_by_imm64 ;; 217
+dq @@op_div_r4_by_imm64 ;; 218
+dq @@op_div_r5_by_imm64 ;; 219
+dq @@op_div_r6_by_imm64 ;; 220
+dq @@op_div_r7_by_imm64 ;; 221
+dq @@op_divrev_r0_by_r0 ;; 222
+dq @@op_divrev_r0_by_r1 ;; 223
+dq @@op_divrev_r0_by_r2 ;; 224
+dq @@op_divrev_r0_by_r3 ;; 225
+dq @@op_divrev_r0_by_r4 ;; 226
+dq @@op_divrev_r0_by_r5 ;; 227
+dq @@op_divrev_r0_by_r6 ;; 228
+dq @@op_divrev_r0_by_r7 ;; 229
+dq @@op_divrev_r0_by_imm8 ;; 230
+dq @@op_divrev_r1_by_imm8 ;; 231
+dq @@op_divrev_r2_by_imm8 ;; 232
+dq @@op_divrev_r3_by_imm8 ;; 233
+dq @@op_divrev_r4_by_imm8 ;; 234
+dq @@op_divrev_r5_by_imm8 ;; 235
+dq @@op_divrev_r6_by_imm8 ;; 236
+dq @@op_divrev_r7_by_imm8 ;; 237
+dq @@op_divrev_r0_by_imm32 ;; 238
+dq @@op_divrev_r1_by_imm32 ;; 239
+dq @@op_divrev_r2_by_imm32 ;; 240
+dq @@op_divrev_r3_by_imm32 ;; 241
+dq @@op_divrev_r4_by_imm32 ;; 242
+dq @@op_divrev_r5_by_imm32 ;; 243
+dq @@op_divrev_r6_by_imm32 ;; 244
+dq @@op_divrev_r7_by_imm32 ;; 245
+dq @@op_divrev_r0_by_imm64 ;; 246
+dq @@op_divrev_r1_by_imm64 ;; 247
+dq @@op_divrev_r2_by_imm64 ;; 248
+dq @@op_divrev_r3_by_imm64 ;; 249
+dq @@op_divrev_r4_by_imm64 ;; 250
+dq @@op_divrev_r5_by_imm64 ;; 251
+dq @@op_divrev_r6_by_imm64 ;; 252
+dq @@op_divrev_r7_by_imm64 ;; 253
+dq @@op_mod_r0_by_r0 ;; 254
+dq @@op_mod_r0_by_r1 ;; 255
+dq @@op_mod_r0_by_r2 ;; 256
+dq @@op_mod_r0_by_r3 ;; 257
+dq @@op_mod_r0_by_r4 ;; 258
+dq @@op_mod_r0_by_r5 ;; 259
+dq @@op_mod_r0_by_r6 ;; 260
+dq @@op_mod_r0_by_r7 ;; 261
+dq @@op_mod_r0_by_imm8 ;; 262
+dq @@op_mod_r1_by_imm8 ;; 263
+dq @@op_mod_r2_by_imm8 ;; 264
+dq @@op_mod_r3_by_imm8 ;; 265
+dq @@op_mod_r4_by_imm8 ;; 266
+dq @@op_mod_r5_by_imm8 ;; 267
+dq @@op_mod_r6_by_imm8 ;; 268
+dq @@op_mod_r7_by_imm8 ;; 269
+dq @@op_mod_r0_by_imm32 ;; 270
+dq @@op_mod_r1_by_imm32 ;; 271
+dq @@op_mod_r2_by_imm32 ;; 272
+dq @@op_mod_r3_by_imm32 ;; 273
+dq @@op_mod_r4_by_imm32 ;; 274
+dq @@op_mod_r5_by_imm32 ;; 275
+dq @@op_mod_r6_by_imm32 ;; 276
+dq @@op_mod_r7_by_imm32 ;; 277
+dq @@op_mod_r0_by_imm64 ;; 278
+dq @@op_mod_r1_by_imm64 ;; 279
+dq @@op_mod_r2_by_imm64 ;; 280
+dq @@op_mod_r3_by_imm64 ;; 281
+dq @@op_mod_r4_by_imm64 ;; 282
+dq @@op_mod_r5_by_imm64 ;; 283
+dq @@op_mod_r6_by_imm64 ;; 284
+dq @@op_mod_r7_by_imm64 ;; 285
+dq @@op_modrev_r0_by_r0 ;; 286
+dq @@op_modrev_r0_by_r1 ;; 287
+dq @@op_modrev_r0_by_r2 ;; 288
+dq @@op_modrev_r0_by_r3 ;; 289
+dq @@op_modrev_r0_by_r4 ;; 290
+dq @@op_modrev_r0_by_r5 ;; 291
+dq @@op_modrev_r0_by_r6 ;; 292
+dq @@op_modrev_r0_by_r7 ;; 293
+dq @@op_modrev_r0_by_imm8 ;; 294
+dq @@op_modrev_r1_by_imm8 ;; 295
+dq @@op_modrev_r2_by_imm8 ;; 296
+dq @@op_modrev_r3_by_imm8 ;; 297
+dq @@op_modrev_r4_by_imm8 ;; 298
+dq @@op_modrev_r5_by_imm8 ;; 299
+dq @@op_modrev_r6_by_imm8 ;; 300
+dq @@op_modrev_r7_by_imm8 ;; 301
+dq @@op_modrev_r0_by_imm32 ;; 302
+dq @@op_modrev_r1_by_imm32 ;; 303
+dq @@op_modrev_r2_by_imm32 ;; 304
+dq @@op_modrev_r3_by_imm32 ;; 305
+dq @@op_modrev_r4_by_imm32 ;; 306
+dq @@op_modrev_r5_by_imm32 ;; 307
+dq @@op_modrev_r6_by_imm32 ;; 308
+dq @@op_modrev_r7_by_imm32 ;; 309
+dq @@op_modrev_r0_by_imm64 ;; 310
+dq @@op_modrev_r1_by_imm64 ;; 311
+dq @@op_modrev_r2_by_imm64 ;; 312
+dq @@op_modrev_r3_by_imm64 ;; 313
+dq @@op_modrev_r4_by_imm64 ;; 314
+dq @@op_modrev_r5_by_imm64 ;; 315
+dq @@op_modrev_r6_by_imm64 ;; 316
+dq @@op_modrev_r7_by_imm64 ;; 317
+dq @@op_fill_r0_by_0 ;; 318
+dq @@op_fill_r1_by_0 ;; 319
+dq @@op_fill_r2_by_0 ;; 320
+dq @@op_fill_r3_by_0 ;; 321
+dq @@op_fill_r4_by_0 ;; 322
+dq @@op_fill_r5_by_0 ;; 323
+dq @@op_fill_r6_by_0 ;; 324
+dq @@op_fill_r7_by_0 ;; 325
+dq @@op_fill_cx_by_0 ;; 326
+dq @@op_fill_r_x3_by_0 ;; 327
+dq @@op_fill_r_x4_by_0 ;; 328
+dq @@op_fill_r_x5_by_0 ;; 329
+dq @@op_fill_r_x6_by_0 ;; 330
+dq @@op_fill_r_x7_by_0 ;; 331
+dq @@op_fill_r_x8_by_0 ;; 332
+dq @@op_fill_r0_by_imm8 ;; 333
+dq @@op_fill_r1_by_imm8 ;; 334
+dq @@op_fill_r2_by_imm8 ;; 335
+dq @@op_fill_r3_by_imm8 ;; 336
+dq @@op_fill_r4_by_imm8 ;; 337
+dq @@op_fill_r5_by_imm8 ;; 338
+dq @@op_fill_r6_by_imm8 ;; 339
+dq @@op_fill_r7_by_imm8 ;; 340
+dq @@op_fill_r0_by_imm32 ;; 341
+dq @@op_fill_r1_by_imm32 ;; 342
+dq @@op_fill_r2_by_imm32 ;; 343
+dq @@op_fill_r3_by_imm32 ;; 344
+dq @@op_fill_r4_by_imm32 ;; 345
+dq @@op_fill_r5_by_imm32 ;; 346
+dq @@op_fill_r6_by_imm32 ;; 347
+dq @@op_fill_r7_by_imm32 ;; 348
+dq @@op_fill_r0_by_imm64 ;; 349
+dq @@op_fill_r1_by_imm64 ;; 350
+dq @@op_fill_r2_by_imm64 ;; 351
+dq @@op_fill_r3_by_imm64 ;; 352
+dq @@op_fill_r4_by_imm64 ;; 353
+dq @@op_fill_r5_by_imm64 ;; 354
+dq @@op_fill_r6_by_imm64 ;; 355
+dq @@op_fill_r7_by_imm64 ;; 356
+dq @@op_fill_r0_by_counter ;; 357
+dq @@op_fill_r1_by_counter ;; 358
+dq @@op_fill_r2_by_counter ;; 359
+dq @@op_fill_r3_by_counter ;; 360
+dq @@op_fill_r4_by_counter ;; 361
+dq @@op_fill_r5_by_counter ;; 362
+dq @@op_fill_r6_by_counter ;; 363
+dq @@op_fill_r7_by_counter ;; 364
+dq @@op_fill_counter_by_r0 ;; 365
+dq @@op_fill_counter_by_r1 ;; 366
+dq @@op_fill_counter_by_r2 ;; 367
+dq @@op_fill_counter_by_r3 ;; 368
+dq @@op_fill_counter_by_r4 ;; 369
+dq @@op_fill_counter_by_r5 ;; 370
+dq @@op_fill_counter_by_r6 ;; 371
+dq @@op_fill_counter_by_r7 ;; 372
+dq @@op_abs_r0 ;; 373
+dq @@op_abs_r1 ;; 374
+dq @@op_abs_r2 ;; 375
+dq @@op_abs_r3 ;; 376
+dq @@op_abs_r4 ;; 377
+dq @@op_abs_r5 ;; 378
+dq @@op_abs_r6 ;; 379
+dq @@op_abs_r7 ;; 380
+dq @@op_neg_r0 ;; 381
+dq @@op_neg_r1 ;; 382
+dq @@op_neg_r2 ;; 383
+dq @@op_neg_r3 ;; 384
+dq @@op_neg_r4 ;; 385
+dq @@op_neg_r5 ;; 386
+dq @@op_neg_r6 ;; 387
+dq @@op_neg_r7 ;; 388
+dq @@op_jump ;; 389
+dq @@op_jump_back ;; 390
+dq @@op_jump_forward ;; 391
+dq @@op_jump_ifz ;; 392
+dq @@op_jump_ifnz ;; 393
+dq @@op_jump_ifgtz ;; 394
+dq @@op_jump_ifltz ;; 395
+dq @@op_jump_back_ifz ;; 396
+dq @@op_jump_back_ifnz ;; 397
+dq @@op_jump_back_ifgtz ;; 398
+dq @@op_jump_back_ifltz ;; 399
+dq @@op_jump_forward_ifz ;; 400
+dq @@op_jump_forward_ifnz ;; 401
+dq @@op_jump_forward_ifgtz ;; 402
+dq @@op_jump_forward_ifltz ;; 403
+dq @@op_for_nz ;; 404
+dq @@op_break_for_nz ;; 405
+dq @@op_end_for_nz ;; 406
