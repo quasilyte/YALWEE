@@ -16,48 +16,48 @@
 | FR     | any float register, r[0-8]              |
 
 #+CAPTION: increment (add) ops
-| Syntax                             | Pseudocode / description |  # |
-|------------------------------------+--------------------------+----|
-| inc_r[0-7]_by_1                    | R = R + 1                |  8 |
-| inc_cx_by_1                        | cx = cx + 1              |  1 |
-| inc_r0_by_r[0-7]                   | acc = acc + R            |  8 |
-| inc_cx_by_r[0-7]                   | cx = cx + R              |  8 |
-| inc_r[0-7]_by_imm(8;32;64) <imm:A> | R = R + const            | 24 |
-| inc_cx_by_imm(8;32;64) <imm:A>     | cx = cx + const          |  3 |
+| Syntax                            | Pseudocode / description |  # |
+|-----------------------------------+--------------------------+----|
+| inc_r[0-7]_by_1                   | R = R + 1                |  8 |
+| inc_cx_by_1                       | cx = cx + 1              |  1 |
+| inc_r0_by_r[0-7]                  | acc = acc + R            |  8 |
+| inc_cx_by_r[0-7]                  | cx = cx + R              |  8 |
+| inc_r[0-7]_by_imm(8;32;64) @imm:A | R = R + const            | 24 |
+| inc_cx_by_imm(8;32;64) @imm:A     | cx = cx + const          |  3 |
 
 #+CAPTION: decrement (sub) ops
-| Syntax                             | Pseudocode / description |  # |
-|------------------------------------+--------------------------+----|
-| dec_r[0-7]_by_1                    | R = R - 1                |  8 |
-| dec_cx_by_1                        | cx = cx - 1              |  1 |
-| dec_r0_by_r[0-7]                   | acc = acc - R            |  8 |
-| dec_cx_by_r[0-7]                   | cx = cx - R              |  8 |
-| dec_r[0-7]_by_imm(8;32;64) <imm:A> | R = R - const            | 24 |
-| dec_cx_by_imm(8;32;64) <imm:A>     | cx = cx - const          |  3 |
-| decrev_r0_by_r[0-7]                | acc = R - acc            |  8 |
-| decrev_r[0-7]_by_imm(8;32;64)      | R = const - R            | 24 |
+| Syntax                            | Pseudocode / description |  # |
+|-----------------------------------+--------------------------+----|
+| dec_r[0-7]_by_1                   | R = R - 1                |  8 |
+| dec_cx_by_1                       | cx = cx - 1              |  1 |
+| dec_r0_by_r[0-7]                  | acc = acc - R            |  8 |
+| dec_cx_by_r[0-7]                  | cx = cx - R              |  8 |
+| dec_r[0-7]_by_imm(8;32;64) @imm:A | R = R - const            | 24 |
+| dec_cx_by_imm(8;32;64) @imm:A     | cx = cx - const          |  3 |
+| decrev_r0_by_r[0-7]               | acc = R - acc            |  8 |
+| decrev_r[0-7]_by_imm(8;32;64)     | R = const - R            | 24 |
 
 #+CAPTION: bitwise ops
-| Syntax                            | Pseudocode / description | # |
-|-----------------------------------+--------------------------+---|
-| bitor_r0_by_r[0-7]                | acc = acc ¦ R            | 8 |
-| bitor_r0_by_imm(8;32;64) <imm:A>  | acc = acc ¦ const        | 3 |
-| bitand_r0_by_r[0-7]               | acc = acc & R            | 8 |
-| bitand_r0_by_imm(8;32;64) <imm:A> | acc = acc & const        | 3 |
+| Syntax                           | Pseudocode / description | # |
+|----------------------------------+--------------------------+---|
+| bitor_r0_by_r[0-7]               | acc = acc ¦ R            | 8 |
+| bitor_r0_by_imm(8;32;64) @imm:A  | acc = acc ¦ const        | 3 |
+| bitand_r0_by_r[0-7]              | acc = acc & R            | 8 |
+| bitand_r0_by_imm(8;32;64) @imm:A | acc = acc & const        | 3 |
 
 #+CAPTION: multiplication ops
-| Syntax                                | Pseudocode / description |  # |
-|---------------------------------------+--------------------------+----|
-| mul_r0_by_r[0-7]                      | acc *= R                 |  8 |
-| mul_r[0-7]_by_imm(8;32;64) <imm:A>    | R *= const               | 24 |
-| div_r0_by_r[0-7]                      | acc = acc / R            |  8 |
-| div_r[0-7]_by_imm(8;32;64) <imm:A>    | R = acc / const          | 24 |
-| divrev_r0_by_r[0-7]                   | acc = R / acc            |  8 |
-| divrev_r[0-7]_by_imm(8;32;64) <imm:A> | R = const / R            | 24 |
-| mod_r0_by_r[0-7]                      | acc = acc % R            |  8 |
-| mod_r[0-7]_by_imm(8;32;64) <imm:A>    | R = R % const            | 24 |
-| modrev_r0_by_r[0-7]                   | acc = R % acc            |  8 |
-| modrev_r[0-7]_by_imm(8;32;64) <imm:A> | R = const % acc          | 24 |
+| Syntax                               | Pseudocode / description |  # |
+|--------------------------------------+--------------------------+----|
+| mul_r0_by_r[0-7]                     | acc *= R                 |  8 |
+| mul_r[0-7]_by_imm(8;32;64) @imm:A    | R *= const               | 24 |
+| div_r0_by_r[0-7]                     | acc = acc / R            |  8 |
+| div_r[0-7]_by_imm(8;32;64) @imm:A    | R = acc / const          | 24 |
+| divrev_r0_by_r[0-7]                  | acc = R / acc            |  8 |
+| divrev_r[0-7]_by_imm(8;32;64) @imm:A | R = const / R            | 24 |
+| mod_r0_by_r[0-7]                     | acc = acc % R            |  8 |
+| mod_r[0-7]_by_imm(8;32;64) @imm:A    | R = R % const            | 24 |
+| modrev_r0_by_r[0-7]                  | acc = R % acc            |  8 |
+| modrev_r[0-7]_by_imm(8;32;64) @imm:A | R = const % acc          | 24 |
 
 #+CAPTION: move ops
 | Syntax                      | Pseudocode / description |  # |
@@ -92,9 +92,9 @@
 #+CAPTION: jump ops
 | Syntax                                    | Pseudocode / description                 | # |
 |-------------------------------------------+------------------------------------------+---|
-| jump <offset:32>                          | goto label(offset)                       | 1 |
-| jump_back <offset:32>                     | goto label(pc - offset)                  | 1 |
-| jump_forward <offset:32>                  | goto label(pc + offset)                  | 1 |
-| jump_if(z;nz;gtz;ltz) <offset:32>         | jump if acc satisfies given cond         | 4 |
-| jump_back_if(z;nz;gtz;ltz) <offset:32>    | jump back if acc satisfies given cond    | 4 |
-| jump_forward_if(z;nz;gtz;ltz) <offset:32> | jump forward if acc satisfies given cond | 4 |
+| jump @offset:32                          | goto label(offset)                       | 1 |
+| jump_back @offset:32                     | goto label(pc - offset)                  | 1 |
+| jump_forward @offset:32                  | goto label(pc + offset)                  | 1 |
+| jump_if(z;nz;gtz;ltz) @offset:32         | jump if acc satisfies given cond         | 4 |
+| jump_back_if(z;nz;gtz;ltz) @offset:32    | jump back if acc satisfies given cond    | 4 |
+| jump_forward_if(z;nz;gtz;ltz) @offset:32 | jump forward if acc satisfies given cond | 4 |
