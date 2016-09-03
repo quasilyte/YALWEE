@@ -26,16 +26,16 @@
 | inc_cx_by_imm(8;32;64) @imm:A     | cx = cx + const          |  3 |
 
 #+CAPTION: decrement (sub) ops
-| Syntax                            | Pseudocode / description |  # |
-|-----------------------------------+--------------------------+----|
-| dec_r[0-7]_by_1                   | R = R - 1                |  8 |
-| dec_cx_by_1                       | cx = cx - 1              |  1 |
-| dec_r0_by_r[0-7]                  | acc = acc - R            |  8 |
-| dec_cx_by_r[0-7]                  | cx = cx - R              |  8 |
-| dec_r[0-7]_by_imm(8;32;64) @imm:A | R = R - const            | 24 |
-| dec_cx_by_imm(8;32;64) @imm:A     | cx = cx - const          |  3 |
-| decrev_r0_by_r[0-7]               | acc = R - acc            |  8 |
-| decrev_r[0-7]_by_imm(8;32;64)     | R = const - R            | 24 |
+| Syntax                               | Pseudocode / description |  # |
+|--------------------------------------+--------------------------+----|
+| dec_r[0-7]_by_1                      | R = R - 1                |  8 |
+| dec_cx_by_1                          | cx = cx - 1              |  1 |
+| dec_r0_by_r[0-7]                     | acc = acc - R            |  8 |
+| dec_cx_by_r[0-7]                     | cx = cx - R              |  8 |
+| dec_r[0-7]_by_imm(8;32;64) @imm:A    | R = R - const            | 24 |
+| dec_cx_by_imm(8;32;64) @imm:A        | cx = cx - const          |  3 |
+| decrev_r0_by_r[0-7]                  | acc = R - acc            |  8 |
+| decrev_r[0-7]_by_imm(8;32;64) @imm:A | R = const - R            | 24 |
 
 #+CAPTION: bitwise ops
 | Syntax                           | Pseudocode / description | # |
@@ -104,6 +104,7 @@
 |----------------+------------------------------------------------+---|
 | for_nz @step:8 | repeat code until end_for_nz while cx not zero | 1 |
 | break_for_nz   | break current for_nz loop                      | 1 |
+| end_for_nz     | closes nearest for_nz                          | 1 |
 
 
 
