@@ -22,7 +22,7 @@ def parse_range tmpl
   end
 end
 
-IO.readlines('oplist.txt')
+IO.readlines('data/op_templates.txt')
   .map(&method(:parse_list))
   .flatten
   .reject {|line| line.empty? || line == "\n"}
