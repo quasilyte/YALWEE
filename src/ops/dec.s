@@ -41,42 +41,42 @@
 
 %macro @op_dec_r?_by_imm8 1
   @@op_dec_r%1_by_imm8:
-    read_imm8 al
-    sub R%1x8, al
+    consume_imm8 rax
+    sub R%1, rax
     @next_op
 %endmacro
 
 %macro @op_dec_r?_by_imm32 1
   @@op_dec_r%1_by_imm32:
-    read_imm32 eax
-    sub R%1x32, eax
+    consume_imm32 rax
+    sub R%1, rax
     @next_op
 %endmacro
 
 %macro @op_dec_r?_by_imm64 1
   @@op_dec_r%1_by_imm64:
-    read_imm64 rax
+    consume_imm64 rax
     sub R%1, rax
     @next_op
 %endmacro
 
 %macro @op_dec_cx_by_imm8 0
   @@op_dec_cx_by_imm8:
-    read_imm8 al
+    consume_imm8 rax
     sub CX, rax
     @next_op
 %endmacro
 
 %macro @op_dec_cx_by_imm32 0
   @@op_dec_cx_by_imm32:
-    read_imm32 eax
+    consume_imm32 rax
     sub CX, rax
     @next_op
 %endmacro
 
 %macro @op_dec_cx_by_imm64 0
   @@op_dec_cx_by_imm64:
-    read_imm64 rax
+    consume_imm64 rax
     sub CX, rax
     @next_op
 %endmacro
@@ -90,23 +90,23 @@
 
 %macro @op_decrev_r?_by_imm8 1
   @@op_decrev_r%1_by_imm8:
-    read_imm8 al
-    sub R%1x8, al
+    consume_imm8 rax
+    sub R%1, rax
     neg al
     @next_op
 %endmacro
 
 %macro @op_decrev_r?_by_imm32 1
   @@op_decrev_r%1_by_imm32:
-    read_imm32 eax
-    sub R%1x32, eax
+    consume_imm32 rax
+    sub R%1, rax
     neg eax
     @next_op
 %endmacro
 
 %macro @op_decrev_r?_by_imm64 1
   @@op_decrev_r%1_by_imm64:
-    read_imm64 rax
+    consume_imm64 rax
     sub R%1, rax
     neg rax
     @next_op

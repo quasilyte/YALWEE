@@ -12,18 +12,3 @@
     %assign i i+1
   %endrep
 %endmacro
-
-%macro read_imm8 1
-  mov %1, byte [IP]
-  inc IP
-%endmacro
-
-%macro read_imm32 1
-  mov %1, dword [IP]
-  add IP, 4
-%endmacro
-
-%macro read_imm64 1
-  mov %1, qword [IP]
-  add IP, 8
-%endmacro

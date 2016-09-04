@@ -8,7 +8,7 @@
 ;; shared noop body of "for" loops 
 for_noop: 
   inc IP         ;; skip step
-  read_imm32 eax
+  consume_imm32 rax
   add IP, rax    ;; skip loop body
   @next_op
 

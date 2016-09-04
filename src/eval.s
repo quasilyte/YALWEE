@@ -1,6 +1,7 @@
 global eval 
 
 %include "/reg_decls.s"
+%include "/utils.s"
 %include "/op_macros.s"
 %include "/op_impl.s"
 %include "/eval_fast.s"

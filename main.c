@@ -10,9 +10,8 @@ void set_reg(int n, long value);
 void print_regs(void);
 void init(void);
 
-char loop_code[] = {
-  INC_R0_BY_IMM8(10),
-  NEG_R0,
+char loop_code[] = { 
+  DEC_R0_BY_IMM8(-10),
 
   EXIT,
 };
