@@ -25,6 +25,18 @@
   %endrep
 %endmacro
 
+%macro @each_curry 2-*
+  %define m %1
+  %define c %2
+  %rotate 2
+
+  %rep %0-2
+    %[m] %[c], %1
+
+    %rotate 1
+  %endrep
+%endmacro
+
 %macro @each 1-*
   %define m %1
   %rotate 1
