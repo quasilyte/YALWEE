@@ -5,6 +5,7 @@
   @each_r @op_fill_r?_by_counter
   @each_r @op_fill_counter_by_r?
   @each_imm @op_fill_counter_by_imm?
+  @each @op_fill_r_x?_by_0, 3, 4, 5, 6, 7, 8
 %endmacro
 
 %macro @op_fill_r?_by_0 1
@@ -40,5 +41,18 @@
 %macro @op_fill_counter_by_imm? 1
   @@op_fill_counter_by_imm%1:
     consume_imm%1 CX
+    @next_op
+%endmacro
+
+%macro @op_fill_r_x?_by_0 1
+  @@op_fill_r_x%1_by_0:
+    %assign i 7
+
+    %rep %1
+      xor R%+i, R%+i
+
+      %assign i i-1
+    %endrep
+
     @next_op
 %endmacro

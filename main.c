@@ -11,8 +11,10 @@ void print_regs(void);
 void init(void);
 
 char loop_code[] = { 
-  
-  FILL_R0_BY_COUNTER,
+  INC_R0_BY_IMM8(5),
+  INC_R1_BY_IMM8(6),
+  INC_R2_BY_IMM8(7),
+  FILL_R_X8_BY_0,
   // INC_R0_BY_IMM32(0x7F, 0x96, 0x98, 0),
   // FOR_NZ_START_BY_R0(-1, 8, 0, 0, 0),
   //   ABS_R1,
