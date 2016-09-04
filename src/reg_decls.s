@@ -1,5 +1,5 @@
 ;; registers
-%define R_COUNT 3
+%define R_COUNT 8
 %define R0 r8
 %define R1 r9
 %define R2 r10
@@ -16,17 +16,17 @@
 %define R5x32 r13d
 %define R6x32 r14d
 %define R7x32 r15d
-%define R0x16 r8w
-%define R1x16 r8w
-%define R2x16 r8w
-%define R3x16 r8w
-%define R4x16 r8w
-%define R5x16 r8w
-%define R6x16 r8w
-%define R7x16 r8w
+%define R0x8 r8b
+%define R1x8 r9b
+%define R2x8 r10b
+%define R3x8 r11b
+%define R4x8 r12b
+%define R5x8 r13b
+%define R6x8 r14b
+%define R7x8 r15b
 
 ;; float registers 
-%define FR_COUNT 3
+%define FR_COUNT 8
 %define FR0 xmm0
 %define FR1 xmm1
 %define FR2 xmm2
@@ -39,3 +39,6 @@
 ;; register aliases
 %define ACC R0
 %define FACC FR0
+%define CX rsi
+%define STEP rbx
+%define IP rdi

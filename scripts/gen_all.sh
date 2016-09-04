@@ -2,7 +2,7 @@
 
 op_enum_path='tmp/op_enum.txt'
 s_labels='src/op_labels.s'
-c_mnemonics='src/c_api/mnemonics.h'
+c_mnemonics='include/c_api/mnemonics.h'
 
 ruby ./scripts/gen_op_enum.rb > $op_enum_path
 
