@@ -58,6 +58,6 @@
   @@op_decrev_r%1_by_imm%2:
     consume_imm%2 rax
     sub R%1, rax
-    neg rax
+    neg R%1
     @next_op
 %endmacro
