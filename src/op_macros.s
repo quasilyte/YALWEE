@@ -25,6 +25,17 @@
   %endrep
 %endmacro
 
+%macro @each 1-*
+  %define m %1
+  %rotate 1
+
+  %rep %0-1
+    %[m] %1
+
+    %rotate 1
+  %endrep
+%endmacro
+
 %macro @each_imm 1
   %1 8
   %1 32
