@@ -1,5 +1,5 @@
 %macro @abs_ops 0
-  @each @op_abs_r?
+  @each_r @op_abs_r?
 %endmacro
 
 %macro @op_abs_r? 1

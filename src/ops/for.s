@@ -1,7 +1,6 @@
 %macro @for_nz_ops 0
-
   @op_break_for  
-  @each @op_for_nz_start_by_r?
+  @each_r @op_for_nz_start_by_r?
   @op_end_for_nz
 %endmacro
 

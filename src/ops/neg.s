@@ -1,5 +1,5 @@
 %macro @neg_ops 0
-  @each @op_neg_r?
+  @each_r @op_neg_r?
 %endmacro
 
 %macro @op_neg_r? 1

@@ -3,3 +3,4 @@
 %include "/ops/for.s"
 %include "/ops/abs.s"
 %include "/ops/neg.s"
+%include "/ops/fill.s"

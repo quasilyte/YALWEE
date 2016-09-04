@@ -1,18 +1,12 @@
 %macro @dec_ops 0
-  @each @op_dec_r?_by_1
+  @each_r @op_dec_r?_by_1
   @op_dec_cx_by_1 
-  @each @op_dec_r0_by_r?
-  @each @op_dec_cx_by_r?
-  @each @op_dec_r?_by_imm8
-  @each @op_dec_r?_by_imm32
-  @each @op_dec_r?_by_imm64
-  @op_dec_cx_by_imm8
-  @op_dec_cx_by_imm32
-  @op_dec_cx_by_imm64
-  @each @op_decrev_r0_by_r?
-  @each @op_decrev_r?_by_imm8
-  @each @op_decrev_r?_by_imm32
-  @each @op_decrev_r?_by_imm64
+  @each_r @op_dec_r0_by_r?
+  @each_r @op_dec_cx_by_r?
+  @each_r_and_imm @op_dec_r?_by_imm?
+  @each_imm @op_dec_cx_by_imm?
+  @each_r @op_decrev_r0_by_r?
+  @each_r_and_imm @op_decrev_r?_by_imm?
 %endmacro
 
 %macro @op_dec_r?_by_1 1
@@ -39,44 +33,16 @@
     @next_op
 %endmacro
 
-%macro @op_dec_r?_by_imm8 1
-  @@op_dec_r%1_by_imm8:
-    consume_imm8 rax
+%macro @op_dec_r?_by_imm? 2
+  @@op_dec_r%1_by_imm%2:
+    consume_imm%2 rax
     sub R%1, rax
     @next_op
 %endmacro
 
-%macro @op_dec_r?_by_imm32 1
-  @@op_dec_r%1_by_imm32:
-    consume_imm32 rax
-    sub R%1, rax
-    @next_op
-%endmacro
-
-%macro @op_dec_r?_by_imm64 1
-  @@op_dec_r%1_by_imm64:
-    consume_imm64 rax
-    sub R%1, rax
-    @next_op
-%endmacro
-
-%macro @op_dec_cx_by_imm8 0
-  @@op_dec_cx_by_imm8:
-    consume_imm8 rax
-    sub CX, rax
-    @next_op
-%endmacro
-
-%macro @op_dec_cx_by_imm32 0
-  @@op_dec_cx_by_imm32:
-    consume_imm32 rax
-    sub CX, rax
-    @next_op
-%endmacro
-
-%macro @op_dec_cx_by_imm64 0
-  @@op_dec_cx_by_imm64:
-    consume_imm64 rax
+%macro @op_dec_cx_by_imm? 1
+  @@op_dec_cx_by_imm%1:
+    consume_imm%1 rax
     sub CX, rax
     @next_op
 %endmacro
@@ -88,25 +54,9 @@
     @next_op
 %endmacro
 
-%macro @op_decrev_r?_by_imm8 1
-  @@op_decrev_r%1_by_imm8:
-    consume_imm8 rax
-    sub R%1, rax
-    neg al
-    @next_op
-%endmacro
-
-%macro @op_decrev_r?_by_imm32 1
-  @@op_decrev_r%1_by_imm32:
-    consume_imm32 rax
-    sub R%1, rax
-    neg eax
-    @next_op
-%endmacro
-
-%macro @op_decrev_r?_by_imm64 1
-  @@op_decrev_r%1_by_imm64:
-    consume_imm64 rax
+%macro @op_decrev_r?_by_imm? 2
+  @@op_decrev_r%1_by_imm%2:
+    consume_imm%2 rax
     sub R%1, rax
     neg rax
     @next_op

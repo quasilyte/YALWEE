@@ -19,6 +19,13 @@ decrev_r[0-7]_by_imm(8;32;64)
 abs_r[0-7]
 neg_r[0-7]
 
+fill_r[0-7]_by_0
+fill_cx_by_0
+fill_r[0-7]_by_imm(8;32;64)
+fill_r[0-7]_by_counter
+fill_counter_by_r[0-7]
+fill_counter_by_imm(8;32;64)
+
 break_for
 for_nz_start_by_r[0-7]
 end_for_nz

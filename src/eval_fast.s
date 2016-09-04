@@ -21,5 +21,6 @@ eval_fast: ;{fn}
   @for_nz_ops
   @abs_ops
   @neg_ops
+  @fill_ops
 
 ;{endfn}
