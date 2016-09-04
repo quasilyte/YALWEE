@@ -4,11 +4,29 @@
   jmp [$op_table+(rax*8)]
 %endmacro 
 
-%macro @each 1-2 R_COUNT
+%macro @each_r 1-2 R_COUNT
   %assign i 0
 
   %rep %2
     %1 i 
     %assign i i+1
   %endrep
+%endmacro
+
+%macro @each_r_and_imm 1-2 R_COUNT
+  %assign i 0
+
+  %rep %2
+    %1 i, 8
+    %1 i, 32
+    %1 i, 64
+
+    %assign i i+1
+  %endrep
+%endmacro
+
+%macro @each_imm 1
+  %1 8
+  %1 32
+  %1 64
 %endmacro
