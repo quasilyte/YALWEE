@@ -5,7 +5,8 @@
 ;; @Args:
 ;;  rdi -- binary code to execute
 ;; @Uses:
-;;  rax -- tmp
+;;  rax -- tmp1
+;;  rdx -- tmp2
 ;;  rbx -- external counter step
 ;;  rsi -- external counter
 ;;  rcx -- internal counter
@@ -18,6 +19,7 @@ eval_fast: ;{fn}
   @inc_ops
   @dec_ops
   @for_nz_ops
+  @abs_ops
   @neg_ops
 
 ;{endfn}
