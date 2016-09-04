@@ -100,11 +100,11 @@
 | jump_forward_if(z;nz;gtz;ltz) @offset:32 | jump forward if acc satisfies given cond | 4 |
 
 #+CAPTION: loop ops
-| Syntax         | Pseudocode / description                       | # |
-|----------------+------------------------------------------------+---|
-| for_nz @step:8 | repeat code until end_for_nz while cx not zero | 1 |
-| break_for_nz   | break current for_nz loop                      | 1 |
-| end_for_nz     | closes nearest for_nz                          | 1 |
+| Syntax                    | Pseudocode / description                       | # |
+|---------------------------+------------------------------------------------+---|
+| for_nz @step:8 @offset:32 | repeat code until end_for_nz while cx not zero | 1 |
+| break_for_nz              | break current for_nz loop                      | 1 |
+| end_for_nz                | closes nearest for_nz                          | 1 |
 
 
 
