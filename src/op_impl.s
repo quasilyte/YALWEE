@@ -22,18 +22,6 @@
   dec R%1
 %endmacro
 
-%macro @move_r0_to_r 1
-  mov R%1, R0
-%endmacro
-
-%macro @move_r1_to_r 1
-  mov R%1, R1
-%endmacro
-
-%macro @move_r2_to_r 1
-  mov R%1, R2
-%endmacro
-
 %macro @move_8_to_r 1
   movzx rax, byte [rdi]
   inc rdi
@@ -57,3 +45,34 @@
   add rdi, 8
   add R%1, rax 
 %endmacro
+
+%macro @move_counter_to_r 1
+  mov R%1, rcx
+%endmacro
+
+%macro @move_r0_to_r 1
+  mov R%1, R0
+%endmacro
+
+%macro @move_r1_to_r 1
+  mov R%1, R1
+%endmacro
+
+%macro @move_r2_to_r 1
+  mov R%1, R2
+%endmacro
+
+%macro @add_8_to_r 1
+  movzx rax, byte [rdi]
+  inc rdi
+  add R%1, rax 
+%endmacro
+
+;; 1 + 2 + 3
+;; mov r 1
+;; add r 2
+;; add r 3
+;; => 12 insn
+
+;; 1 + 2 + 3
+;; 
