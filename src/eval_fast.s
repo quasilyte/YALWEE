@@ -18,5 +18,6 @@ eval_fast: ;{fn}
   @inc_ops
   @dec_ops
   @for_nz_ops
+  @neg_ops
 
 ;{endfn}

@@ -16,6 +16,8 @@ dec_cx_by_imm(8;32;64)
 decrev_r0_by_r[0-7]
 decrev_r[0-7]_by_imm(8;32;64)
 
+neg_r[0-7]
+
 break_for
 for_nz_start_by_r[0-7]
 end_for_nz

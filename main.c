@@ -11,13 +11,8 @@ void print_regs(void);
 void init(void);
 
 char loop_code[] = {
-  INC_R1_BY_IMM32(0x7f, 0x96, 0x98, 0x00),
-
-  FOR_NZ_START_BY_R1(-1, 4, 0, 0, 0),
-    INC_R0_BY_1,     
-  END_FOR_NZ,
-  
-  INC_R7_BY_1,
+  INC_R0_BY_IMM8(10),
+  NEG_R0,
 
   EXIT,
 };
