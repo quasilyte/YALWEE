@@ -13,7 +13,8 @@ for_noop:
 
 ;; shared iteration execution 
 loop_body:
-  mov rdi, [rsp]
+  mov IP, [rsp]
+  nop ;; #DEPENDS on my machine this speeds up
   @next_op
 
 %macro @op_for_nz_start_by_r? 1
@@ -24,10 +25,10 @@ loop_body:
     push CX  ;; preserve counter
     push STEP ;; preserve step
 
-    movsx STEP, byte [rdi] ;; read step
+    movsx STEP, byte [IP] ;; read step
     add IP, 5 ;; step & skip .noop_loop offset
     
-    push rdi ;; store loop_head
+    push IP ;; store loop_head
 
     mov CX, R%1
     jmp for_nz_check
@@ -46,7 +47,7 @@ loop_body:
 %endmacro
 
 %macro @op_end_for_nz 0
-  @@op_end_for_nz:
+  @@op_end_for_nz:    
     add CX, STEP 
     for_nz_check:
       cmp CX, 0
