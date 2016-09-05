@@ -6,10 +6,12 @@ global eval
 %include "/op_impl.s"
 %include "/eval_fast.s"
 
-segment .text
+segment .rodata
 
 $op_table: 
   %include "/op_labels.s"
+
+segment .text
 
 ;; eval is safe, public wrapper around eval_fast
 ;; @Args:
