@@ -1,0 +1,12 @@
+prefetch
+https://groups.google.com/forum/#!topic/comp.lang.asm.x86/KubGb45proI
+
+intel perf lib
+https://software.intel.com/en-us/intel-ipp/
+
+fast memcpy in asm
+http://stackoverflow.com/questions/1715224/very-fast-memcpy-for-image-processing
+
+x86 asm reference (insns)
+http://www.felixcloutier.com/x86/
+
