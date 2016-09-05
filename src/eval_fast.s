@@ -15,9 +15,13 @@
 eval_fast: ;{fn}
   @next_op
 
+  ;; order of definitions here really matters,
+  ;; this section is VERY sensitive to alignment.
+  ;; do not move lines around unless you know what
+  ;; you are doing
   @@op_exit: ret
   @inc_ops
-  @dec_ops
+  @dec_ops  
   @for_nz_ops
   @abs_ops
   @neg_ops
