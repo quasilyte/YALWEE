@@ -15,6 +15,7 @@ $e_memory:
   %assign .i 0
   %rep E_COUNT
     align 16
+    @@op_exec_prepared_e%+.i:
     $e%+.i: 
       resb E_SIZE
     %assign .i (.i + 1)
