@@ -18,6 +18,8 @@
 %define FR6 xmm6
 %define FR7 xmm7
 
+;; #FIXME: xmm7+ are unused
+
 ;; register aliases
 %define ACC R0
 %define FACC FR0
