@@ -16,6 +16,9 @@ dec_cx_by_imm(8;32;64)
 decrev_r0_by_r[0-7]
 decrev_r[0-7]_by_imm(8;32;64)
 
+mul_r0_by_r[0-7]
+mul_r[0-7]_by_imm(8;32;64)
+
 abs_r[0-7]
 neg_r[0-7]
 
