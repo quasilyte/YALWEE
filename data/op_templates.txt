@@ -38,3 +38,7 @@ fill_counter_by_imm(8;32;64)
 break_for
 for_nz_start_by_r[0-7]
 end_for_nz
+
+prepare4_e[0-7]
+prepare8_e[0-7]
+exec_prepared_e[0-7]
