@@ -11,12 +11,13 @@ global eval
 
 segment .bss
 
-%assign i 0
-%rep E_COUNT
-  $e%+i: 
-    resb E_SIZE
-  %assign i i+1
-%endrep
+$e_memory:
+  %assign .i 0
+  %rep E_COUNT
+    $e%+.i: 
+      resb E_SIZE
+    %assign .i (.i + 1)
+  %endrep
 
 segment .rodata
 
