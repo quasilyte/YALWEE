@@ -52,3 +52,5 @@ end_for_nz
 
 prepare(4;8;12;16)_e[0-7]
 exec_prepared_e[0-7]
+
+swap_r0_by_r[1-7]

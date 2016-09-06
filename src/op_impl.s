@@ -9,5 +9,6 @@
 %include "/ops/neg.s"
 %include "/ops/fill.s"
 %include "/ops/prepare.s"
+%include "/ops/swap.s"
 
 %include "/ops/experimental.s"
