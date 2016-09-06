@@ -26,7 +26,6 @@
 %define R7x8 r15b
 
 ;; float registers 
-%define FR_COUNT 8
 %define FR0 xmm0
 %define FR1 xmm1
 %define FR2 xmm2
