@@ -1,6 +1,7 @@
 %include "/ops/inc.s"
 %include "/ops/dec.s"
 %include "/ops/mul.s"
+%include "/ops/bitor.s"
 %include "/ops/for.s"
 %include "/ops/abs.s"
 %include "/ops/neg.s"

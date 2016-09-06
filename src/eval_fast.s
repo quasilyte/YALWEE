@@ -26,6 +26,7 @@ eval_fast: ;{fn}
   @inc_ops
   @dec_ops  
   @mul_ops  
+  @bitor_ops  
   @for_nz_ops
   @abs_ops
   @neg_ops
