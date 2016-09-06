@@ -10,3 +10,5 @@ http://stackoverflow.com/questions/1715224/very-fast-memcpy-for-image-processing
 x86 asm reference (insns)
 http://www.felixcloutier.com/x86/
 
+asm book:
+https://courses.engr.illinois.edu/ece390/books/artofasm/CH09/CH09-6.html#HEADING6-39
