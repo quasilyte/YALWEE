@@ -9,6 +9,7 @@
 | Implementfor JIT support for opcodes bigger than 16 bytes | 3/5      |
 | Solve alignment puzzle (cant copy code with movdqa)       | 3/5      |
 | Improve int div ops                                       | 2/5      |
+| Add shift ops                                             | 2/5      |
 | Improve perfomance of JIT memcpy for code                 | 1/5      |
 | Tune code (need alignment tuning in some places)          | 1/5      |
 
