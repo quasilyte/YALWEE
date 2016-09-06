@@ -14,6 +14,7 @@ segment .bss
 $e_memory:
   %assign .i 0
   %rep E_COUNT
+    align 16
     $e%+.i: 
       resb E_SIZE
     %assign .i (.i + 1)
