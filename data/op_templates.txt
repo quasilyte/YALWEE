@@ -33,7 +33,6 @@ neg_r[0-7]
 
 fill_r[0-7]_by_0
 fill_cx_by_0
-fill_r_x[3-8]_by_0
 fill_r[0-7]_by_imm(8;32;64)
 fill_r[0-7]_by_counter
 fill_r0_by_r(1;2;3;4;5;6;7)

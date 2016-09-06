@@ -5,7 +5,6 @@
   @expand_r? @op_fill_r?_by_counter
   @expand_r? @op_fill_counter_by_r?
   @expand_imm? @op_fill_counter_by_imm?
-  @expand_list @op_fill_r_x?_by_0, 3, 4, 5, 6, 7, 8
   @expand_list {@op_fill_r?_by_r? 0,}, 1, 2, 3, 4, 5, 6, 7
   @expand_list {@op_fill_r?_by_r? 1,}, 0, 2, 3, 4, 5, 6, 7
   @expand_list {@op_fill_r?_by_r? 2,}, 0, 1, 3, 4, 5, 6, 7
@@ -40,20 +39,6 @@
   @@op_fill_counter_by_imm%1:
     consume_imm%1 CX
     @next_op
-%endmacro
-
-%macro @fill_r_x?_by_0 1
-  %assign i 7
-
-  %rep %1
-    xor R%+i, R%+i
-
-    %assign i i-1
-  %endrep
-%endmacro
-
-%macro @op_fill_r_x?_by_0 1
-  @gen_op fill_r_x%1_by_0, {@fill_r_x?_by_0 %1}
 %endmacro
 
 %macro @op_fill_r?_by_r? 2
