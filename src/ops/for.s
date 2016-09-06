@@ -1,6 +1,6 @@
 %macro @for_nz_ops 0
   @op_break_for  
-  @each_r @op_for_nz_start_by_r?
+  @expand_r? @op_for_nz_start_by_r?
   @op_end_for_nz
 %endmacro
 
@@ -14,7 +14,6 @@ for_noop:
 ;; shared iteration execution 
 loop_body:
   mov IP, [rsp]
-  nop ;; #DEPENDS on my machine this speeds up
   @next_op
 
 %macro @op_for_nz_start_by_r? 1
@@ -50,8 +49,7 @@ loop_body:
   @@op_end_for_nz:    
     add CX, STEP 
     for_nz_check:
-      cmp CX, 0
-      jne loop_body
+      jnz loop_body
 
     add rsp, 8 
     pop STEP 

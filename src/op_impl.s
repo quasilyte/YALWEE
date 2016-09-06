@@ -4,3 +4,7 @@
 %include "/ops/abs.s"
 %include "/ops/neg.s"
 %include "/ops/fill.s"
+%include "/ops/prepare.s"
+%include "/ops/exec_prepared.s"
+
+%include "/ops/experimental.s"

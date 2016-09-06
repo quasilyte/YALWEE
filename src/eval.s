@@ -1,15 +1,32 @@
 global eval 
 
-%include "/reg_decls.s"
+%include "/decls/config.s"
+%include "/decls/regs.s"
 %include "/utils.s"
-%include "/op_macros.s"
+%include "/macro/expand.s"
+%include "/macro/op_def.s"
+%include "/macro/next_op.s"
 %include "/op_impl.s"
 %include "/eval_fast.s"
 
+segment .bss
+
+%assign i 0
+%rep E_COUNT
+  $e%+i: 
+    resb E_SIZE
+  %assign i i+1
+%endrep
+
 segment .rodata
 
-$op_table: 
-  %include "/op_labels.s"
+align 8
+$op_sizes:
+  %include "/generated/op_sizes.s"
+
+align 8
+$op_labels: 
+  %include "/generated/op_labels.s"
 
 segment .text
 

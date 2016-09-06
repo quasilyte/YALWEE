@@ -19,12 +19,22 @@ eval_fast: ;{fn}
   ;; this section is VERY sensitive to alignment.
   ;; do not move lines around unless you know what
   ;; you are doing
-  @@op_exit: ret
+  @@op_exit:
+    @@op_exit_begin: 
+      ret
+    @@op_exit_end:
   @inc_ops
   @dec_ops  
   @for_nz_ops
   @abs_ops
   @neg_ops
   @fill_ops
+  @prepare_ops
+  @exec_prepared_ops
+  
+  @@stop:
+    @next_op
+
+  @experimental_ops
 
 ;{endfn}
