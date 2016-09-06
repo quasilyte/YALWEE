@@ -1,5 +1,4 @@
 ;; registers
-%define R_COUNT 8
 %define R0 r8
 %define R1 r9
 %define R2 r10
@@ -8,22 +7,6 @@
 %define R5 r13
 %define R6 r14
 %define R7 r15
-%define R0x32 r8d
-%define R1x32 r9d
-%define R2x32 r10d
-%define R3x32 r11d
-%define R4x32 r12d
-%define R5x32 r13d
-%define R6x32 r14d
-%define R7x32 r15d
-%define R0x8 r8b
-%define R1x8 r9b
-%define R2x8 r10b
-%define R3x8 r11b
-%define R4x8 r12b
-%define R5x8 r13b
-%define R6x8 r14b
-%define R7x8 r15b
 
 ;; float registers 
 %define FR0 xmm0
