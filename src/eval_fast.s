@@ -7,9 +7,9 @@
 ;; @Uses:
 ;;  rax -- tmp1
 ;;  rdx -- tmp2
+;;  rcx -- internal counter
 ;;  rbx -- external counter step
 ;;  rsi -- external counter
-;;  rcx -- internal counter
 ;;  r8-r15 -- external registers
 ;;  xmm0-xmm7 -- external float registers
 eval_fast: ;{fn}
@@ -26,6 +26,7 @@ eval_fast: ;{fn}
   @inc_ops
   @dec_ops  
   @mul_ops  
+  @div_ops  
   @bitor_ops  
   @bitand_ops  
   @for_nz_ops

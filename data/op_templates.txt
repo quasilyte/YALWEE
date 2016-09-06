@@ -19,6 +19,9 @@ decrev_r[0-7]_by_imm(8;32;64)
 mul_r0_by_r[0-7]
 mul_r[0-7]_by_imm(8;32;64)
 
+div_r0_by_r[0-7]
+div_r[0-7]_by_imm(8;32;64)
+
 bitor_r0_by_r[0-7]
 bitor_r0_by_imm(8;32;64)
 
