@@ -25,8 +25,9 @@
     mov rax, [@@stop]
     mov [$e%2+rcx], rax
     mov rax, [@@stop+8]
-    mov [$e%2+rcx+8], rax
-
+    mov [$e%2+rcx+8], rax 
+    mov byte [$e%2+rcx+15], 0x90 
+    
     add IP, (%1 * 2) ;; consume arguments
     @next_op
 %endmacro
