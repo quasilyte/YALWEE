@@ -41,6 +41,7 @@ eval: ;{fn}
   ;; rbp, rbx, rsi, rdi - "callee save"
   push rbx 
   push rsi 
+  push rbp
 
   ;; reset counters
   xor rcx, rcx
@@ -48,6 +49,7 @@ eval: ;{fn}
 
   call eval_fast
 
+  pop rbp
   pop rsi 
   pop rbx
   ret

@@ -10,6 +10,7 @@
 ;;  rcx -- internal counter
 ;;  rbx -- external counter step
 ;;  rsi -- external counter
+;;  rbp -- external memory pointer
 ;;  r8-r15 -- external registers
 ;;  xmm0-xmm7 -- external float registers
 eval_fast: ;{fn}
