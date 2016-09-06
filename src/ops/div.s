@@ -3,6 +3,7 @@
   @expand_r?_imm? @op_div_r?_by_imm?
 %endmacro
 
+;; .560 -- R0 as accumulator
 %macro @div_r0_by_r? 1
   mov rax, R0
   cqo  

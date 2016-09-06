@@ -11,24 +11,24 @@ void print_regs(void);
 void init(void);
 
 char loop_code[] = { 
-  FILL_R0_BY_IMM8(10),
-  FILL_R1_BY_IMM8(-2),
-  MUL_R0_BY_R1,
-  MUL_R0_BY_IMM8(-1),
+  FILL_R0_BY_IMM32(90, 0, 0, 0),
+  FILL_R1_BY_IMM32(10, 0, 0, 0),
+  DIV_R0_BY_R1,
 
   // PREPARE4_E1,
   //   INC_R0_BY_1,
   //   INC_R0_BY_1,
   //   INC_R0_BY_1,
   //   INC_R1_BY_1,
-  // INC_R0_BY_IMM32(0x7F, 0x96, 0x98, 0),  
-  // FOR_NZ_START_BY_R0(-1, 4, 0, 0, 0),
+  INC_R0_BY_IMM32(0x7F, 0x96, 0x98, 0),  
+  FOR_NZ_START_BY_R0(-1, 4, 0, 0, 0),
+    DIV_R0_BY_R1,
   //   PREPARE4_E0, 
   //     INC_R0_BY_1, 
   //     INC_R1_BY_1, 
   //     DEC_R3_BY_1, 
   //     DEC_R2_BY_1,
-  // END_FOR_NZ,
+  END_FOR_NZ,
 
   EXIT,
 };
