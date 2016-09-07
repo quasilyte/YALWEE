@@ -21,6 +21,8 @@ $e_memory:
     %assign .i (.i + 1)
   %endrep
 
+$code_root: resq 1
+
 segment .rodata
 
 align 8
@@ -43,6 +45,7 @@ eval: ;{fn}
   push rsi 
   push rbp
 
+  mov [$code_root], rdi 
   xor CX, CX     ;; reset counter
   call eval_fast ;; interpret code
 

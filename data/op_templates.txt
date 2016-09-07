@@ -52,7 +52,9 @@ for_nz_start_by_r[0-7]
 end_for_nz
 
 jump_rel
+jump_rel_if
 jump_abs
+jump_abs_if
 
 prepare(4;8;12;16)_e[0-7]
 exec_prepared_e[0-7]
