@@ -12,5 +12,7 @@
 %include "/ops/swap.s"
 %include "/ops/eq.s"
 %include "/ops/neq.s"
+%include "/ops/lt.s"
+%include "/ops/gt.s"
 
 %include "/ops/experimental.s"

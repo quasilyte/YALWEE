@@ -38,6 +38,8 @@ eval_fast: ;{fn}
   @swap_ops
   @eq_ops
   @neq_ops
+  @lt_ops
+  @gt_ops
   
   @@stop:
     @next_op

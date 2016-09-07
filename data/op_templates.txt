@@ -58,3 +58,5 @@ swap_r0_with_r[1-7]
 
 eq_r0_r[1-7]
 neq_r0_r[1-7]
+lt_r0_r[1-7]
+gt_r0_r[1-7]
