@@ -10,7 +10,7 @@
 %include "/ops/fill.s"
 %include "/ops/prepare.s"
 %include "/ops/swap.s"
-%include "/ops/logical_ops.s"
+%include "/ops/check.s"
 %include "/ops/jump.s"
 
 %include "/ops/experimental.s"
