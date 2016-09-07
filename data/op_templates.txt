@@ -35,6 +35,7 @@ fill_r[0-7]_by_0
 fill_cx_by_0
 fill_r[0-7]_by_imm(8;32;64)
 fill_r[0-7]_by_counter
+fill_r0_by_r[1-7]_if
 fill_r0_by_r(1;2;3;4;5;6;7)
 fill_r1_by_r(0;2;3;4;5;6;7)
 fill_r2_by_r(0;1;3;4;5;6;7)
@@ -54,3 +55,6 @@ prepare(4;8;12;16)_e[0-7]
 exec_prepared_e[0-7]
 
 swap_r0_with_r[1-7]
+
+eq_r0_r[1-7]
+neq_r0_r[1-7]

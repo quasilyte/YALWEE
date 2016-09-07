@@ -7,11 +7,11 @@
 ;; @Uses:
 ;;  rax -- tmp1
 ;;  rdx -- tmp2
-;;  rcx -- internal counter
+;;  rbp -- tmp3
+;;  rcx -- external logical register 
 ;;  rbx -- external counter step
 ;;  rsi -- external counter
-;;  rbp -- external memory pointer
-;;  r8-r15 -- external registers
+;;  r8-r15    -- external registers
 ;;  xmm0-xmm7 -- external float registers
 eval_fast: ;{fn}
   @next_op
@@ -36,6 +36,8 @@ eval_fast: ;{fn}
   @fill_ops
   @prepare_ops
   @swap_ops
+  @eq_ops
+  @neq_ops
   
   @@stop:
     @next_op
