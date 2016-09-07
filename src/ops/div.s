@@ -15,10 +15,10 @@
 %endmacro
 
 %macro @div_r?_by_imm? 2
-  consume_imm%2 rcx
+  consume_imm%2 rbp
   mov rax, R%1
   cqo  
-  idiv rcx
+  idiv rbp
   mov R0, rax
 %endmacro
 

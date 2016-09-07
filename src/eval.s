@@ -43,11 +43,8 @@ eval: ;{fn}
   push rsi 
   push rbp
 
-  ;; reset counters
-  xor rcx, rcx
-  xor rsi, rsi
-
-  call eval_fast
+  xor CX, CX     ;; reset counter
+  call eval_fast ;; interpret code
 
   pop rbp
   pop rsi 

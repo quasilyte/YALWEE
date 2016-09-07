@@ -4,7 +4,7 @@
 
 %macro @op_prepare?_e? 2
   @@op_prepare%1_e%2:
-    xor rcx, rcx
+    xor rbp, rbp
 
     ;; copying machine code from labels
     %assign %%i 0
@@ -15,18 +15,18 @@
       mov rax, [$op_labels+(rax*8)]  ;; code address
 
       movdqu xmm8, [rax]             ;; code
-      movdqu [$e%2 + rcx], xmm8      ;; copy code 
-      add rcx, rdx                   ;; save offset
+      movdqu [$e%2 + rbp], xmm8      ;; copy code 
+      add rbp, rdx                   ;; save offset
 
       %assign %%i %%i+1
     %endrep
 
     ;; write epilogue
     mov rax, [@@stop]
-    mov [$e%2+rcx], rax
+    mov [$e%2+rbp], rax
     mov rax, [@@stop+8]
-    mov [$e%2+rcx+8], rax 
-    mov byte [$e%2+rcx+15], 0x90 
+    mov [$e%2+rbp+8], rax 
+    mov byte [$e%2+rbp+15], 0x90 
     
     add IP, (%1 * 2) ;; consume arguments
     @next_op
