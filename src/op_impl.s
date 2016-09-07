@@ -10,9 +10,6 @@
 %include "/ops/fill.s"
 %include "/ops/prepare.s"
 %include "/ops/swap.s"
-%include "/ops/eq.s"
-%include "/ops/neq.s"
-%include "/ops/lt.s"
-%include "/ops/gt.s"
+%include "/ops/logical_ops.s"
 
 %include "/ops/experimental.s"
