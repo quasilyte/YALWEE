@@ -13,7 +13,7 @@ void init(void);
 char loop_code[] = {
   FILL_R0_BY_IMM8(1),
   FILL_R1_BY_IMM8(2),
-  EQ_R0_R1,
+  CHECK_R0_NEQ_R1,
   JUMP_ABS_IF(0, 0, 0, 0),
   INC_R2_BY_1,
   INC_R2_BY_1,
