@@ -1,15 +1,16 @@
 #+CAPTION: execution environment (interpreter) tasks
-| Task                                                      | Priority |
-|-----------------------------------------------------------+----------|
-| Double (float64) ops                                      | 5/5      |
-| Memory ops                                                | 4/5      |
-| Implement branching ops                                   | 4/5      |
-| Batch ops (also, SIMD)                                    | 3/5      |
-| Effective padding of JIT code (to align it)               | 3/5      |
-| Implementfor JIT support for opcodes bigger than 16 bytes | 3/5      |
-| Solve alignment puzzle (cant copy code with movdqa)       | 3/5      |
-| Improve int div ops                                       | 2/5      |
-| Add shift ops                                             | 2/5      |
-| Improve perfomance of JIT memcpy for code                 | 1/5      |
-| Tune code (need alignment tuning in some places)          | 1/5      |
+| Task                                                   | Priority |
+|--------------------------------------------------------+----------|
+| Make prepare op receive N byte argument                | 5/5      |
+| Double (float64) ops                                   | 5/5      |
+| Memory ops                                             | 4/5      |
+| Implement branching ops                                | 4/5      |
+| Batch ops (also, SIMD)                                 | 3/5      |
+| Effective padding of JIT code (to align it)            | 3/5      |
+| Implement JIT support for opcodes bigger than 16 bytes | 3/5      |
+| Solve alignment puzzle (cant copy code with movdqa)    | 3/5      |
+| Improve int div ops                                    | 2/5      |
+| Add shift ops                                          | 2/5      |
+| Improve perfomance of JIT memcpy for code              | 1/5      |
+| Tune code (need alignment tuning in some places)       | 1/5      |
 
