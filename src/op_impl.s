@@ -11,5 +11,6 @@
 %include "/ops/prepare.s"
 %include "/ops/swap.s"
 %include "/ops/logical_ops.s"
+%include "/ops/jump.s"
 
 %include "/ops/experimental.s"

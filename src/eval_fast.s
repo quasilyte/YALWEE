@@ -37,6 +37,7 @@ eval_fast: ;{fn}
   @prepare_ops
   @swap_ops
   @logical_ops
+  @jump_ops
   
   @@stop:
     @next_op

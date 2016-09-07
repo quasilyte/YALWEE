@@ -51,6 +51,9 @@ break_for
 for_nz_start_by_r[0-7]
 end_for_nz
 
+jump_rel
+jump_abs
+
 prepare(4;8;12;16)_e[0-7]
 exec_prepared_e[0-7]
 
