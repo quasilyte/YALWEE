@@ -1,0 +1,23 @@
+| Instruction   | Description                  |
+|---------------+------------------------------|
+| max_r0_r[1-7] | stores max of 2 regs into r0 |
+| min_r0_r[1-7] | stores min of 2 regs into r1 |
+|               |                              |
+|               |                              |
+|               |                              |
+
+rule of thumbs:
+- if operation consists of 4 or more basic operations,
+it is not very useful because the user can assemble it with
+prepareX;
+- if operation consists of 2 operations, like decrev (sub + neg),
+it is useful because it avoids additional overhead and saves
+valuable executable memory;
+- if some operations can be made with prepare but also
+are wanted inside other prepared operations, it is a good
+sign to intern that operation inside execution environment
+to make that composition possible;
+- control operations (like loops) and data operations (I/O included)
+are candidates to internal ops
+
+so, mostly new operations are needed to enchance "prepare" + "execute".  

@@ -64,3 +64,7 @@ jump_forward_if(z;nz;gtz;ltz)
 for_nz
 break_for_nz
 end_for_nz
+
+
+cmp_r0_with_r[1-7]
+test_*

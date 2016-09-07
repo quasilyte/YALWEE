@@ -12,3 +12,6 @@ http://www.felixcloutier.com/x86/
 
 asm book:
 https://courses.engr.illinois.edu/ece390/books/artofasm/CH09/CH09-6.html#HEADING6-39
+
+oracle sse docs:
+https://docs.oracle.com/cd/E26502_01/html/E28388/eojdc.html#scrolltoc
