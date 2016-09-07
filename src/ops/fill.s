@@ -37,18 +37,16 @@
 %endmacro
 
 %macro @op_fill_counter_by_imm? 1
-  @@op_fill_counter_by_imm%1:
+  @op_begin fill_counter_by_imm%1
     consume_imm%1 CX
-    @next_op
-%endmacro
-
-%macro @fill_r0_by_r?_if 1
-  cmp cx, 1
-  cmove R0, R%1
+  @op_end
 %endmacro
 
 %macro @op_fill_r0_by_r?_if 1
-  @gen_op fill_r0_by_r%1_if, {@fill_r0_by_r?_if %1}
+  @op_begin fill_r0_by_r%1_if
+    cmp cx, 1
+    cmove R0, R%1
+  @op_end
 %endmacro
 
 %macro @op_fill_r?_by_r? 2

@@ -23,20 +23,16 @@
   @gen_op inc_cx_by_r%1, {add CX, R%1}
 %endmacro
 
-%macro @inc_r?_by_imm? 2
-  consume_imm%2 rax
-  add R%1, rax
-%endmacro
-
 %macro @op_inc_r?_by_imm? 2
-  @gen_op inc_r%1_by_imm%2, {@inc_r?_by_imm? %1, %2}
-%endmacro
-
-%macro @inc_cx_by_imm? 1
-  consume_imm%1 rax
-  add CX, rax
+  @op_begin inc_r%1_by_imm%2
+    consume_imm%2 rax
+    add R%1, rax
+  @op_end
 %endmacro
 
 %macro @op_inc_cx_by_imm? 1
-  @gen_op inc_cx_by_imm%1, {@inc_cx_by_imm? %1}
+  @op_begin inc_cx_by_imm%1
+    consume_imm%1 rax
+    add CX, rax
+  @op_end
 %endmacro
