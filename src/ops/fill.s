@@ -5,6 +5,7 @@
   @expand_r? @op_fill_r?_by_counter
   @expand_r? @op_fill_counter_by_r?
   @expand_imm? @op_fill_counter_by_imm?
+  @expand_range @op_fill_r0_by_r?_if, 1, 7
   @expand_list {@op_fill_r?_by_r? 0,}, 1, 2, 3, 4, 5, 6, 7
   @expand_list {@op_fill_r?_by_r? 1,}, 0, 2, 3, 4, 5, 6, 7
   @expand_list {@op_fill_r?_by_r? 2,}, 0, 1, 3, 4, 5, 6, 7
@@ -39,6 +40,15 @@
   @@op_fill_counter_by_imm%1:
     consume_imm%1 CX
     @next_op
+%endmacro
+
+%macro @fill_r0_by_r?_if 1
+  cmp cx, 1
+  cmove R0, R%1
+%endmacro
+
+%macro @op_fill_r0_by_r?_if 1
+  @gen_op fill_r0_by_r%1_if, {@fill_r0_by_r?_if %1}
 %endmacro
 
 %macro @op_fill_r?_by_r? 2
