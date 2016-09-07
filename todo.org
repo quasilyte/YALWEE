@@ -4,7 +4,6 @@
 | Make prepare op receive N byte argument                | 5/5      |
 | Double (float64) ops                                   | 5/5      |
 | Memory ops                                             | 4/5      |
-| Implement branching ops                                | 4/5      |
 | Batch ops (also, SIMD)                                 | 3/5      |
 | Effective padding of JIT code (to align it)            | 3/5      |
 | Implement JIT support for opcodes bigger than 16 bytes | 3/5      |
