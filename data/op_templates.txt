@@ -1,7 +1,8 @@
 exit
 
-inc_r[0-7]_by_1
-inc_cx_by_1
+inc_r[1-7]_by_1
+inc_r0_by_(1;4;8)
+inc_cx_by_(1;4;8)
 inc_r0_by_r[0-7]
 inc_cx_by_r[0-7]
 inc_r[0-7]_by_imm(8;32;64)
