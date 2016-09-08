@@ -1,6 +1,7 @@
 %macro @dec_ops 0
-  @expand_r? @op_dec_r?_by_1
-  @op_dec_cx_by_1 
+  @expand_range @op_dec_r?_by_1, 1, 7
+  @expand_list @op_dec_r0_by_?, 1, 4, 8 
+  @expand_list @op_dec_cx_by_?, 1, 4, 8 
   @expand_r? @op_dec_r0_by_r?
   @expand_r? @op_dec_cx_by_r?
   @expand_r?_imm? @op_dec_r?_by_imm?
@@ -10,11 +11,15 @@
 %endmacro
 
 %macro @op_dec_r?_by_1 1
-  @gen_op dec_r%1_by_1, {dec R%1}
+  @gen_op dec_r%1_by_1, {sub R%1, 1}
 %endmacro
 
-%macro @op_dec_cx_by_1 0
-  @gen_op dec_cx_by_1, {dec CX}
+%macro @op_dec_r0_by_? 1
+  @gen_op dec_r0_by_%1, {sub R0, %1}
+%endmacro
+
+%macro @op_dec_cx_by_? 1
+  @gen_op dec_cx_by_%1, {sub CX, %1}
 %endmacro
 
 %macro @op_dec_r0_by_r? 1
