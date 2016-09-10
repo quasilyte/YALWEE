@@ -32,10 +32,12 @@ module OpcodeSource
       raise "`#{name}': expected #{opcode.length} args, got #{args.length}"
     end
 
-    opcode.each_with_index {|(key, value), i|
-      assert key, args[i], value, name
+    opcode.each_with_index {|(param_name, domain), i|
+      args[i].each {|arg| assert param_name, arg, domain, name}
     }
 
-    return (Opcode.new name, args)
+    return args.reduce(&:product).map {|args|
+      Opcode.new name, args
+    }
   end
 end

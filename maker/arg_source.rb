@@ -34,7 +34,7 @@ module ArgSource
       raise "only 0..8 registers are available"
     end
 
-    return (Arg.new 'r', values)
+    return values.map {|x| (Arg.new 'r', x)}
   end
 
   def imm *values
@@ -43,7 +43,7 @@ module ArgSource
       raise "only 8, 16, 32 and 64 bit immediates supported" 
     end
 
-    return (Arg.new 'imm', values)
+    return values.map {|x| (Arg.new 'imm', x)}
   end
   
   def const *values
@@ -52,6 +52,6 @@ module ArgSource
       raise "only Fixnum consts are allowed"
     end
 
-    return (Arg.new 'const', values)
+    return values.map {|x| (Arg.new 'const', x)}    
   end
 end

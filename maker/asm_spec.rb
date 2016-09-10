@@ -28,22 +28,22 @@ module AsmSpec
     @@interfaces = interfaces
   end
 
-  def opcodes *opcodes  
-    opcodes.each {|opcode| @@opcodes[opcode.name] = []}
-    opcodes.each {|opcode|
-      @@opcodes[opcode.name] << opcode.args
+  def opcodes *opcode_packs
+    opcode_packs.flatten.each {|opcode|
+      if @@opcodes[opcode.name]
+        @@opcodes[opcode.name] << opcode
+      else
+        @@opcodes[opcode.name] = [opcode]
+      end
     }
   end
 
   at_exit do
     generator = CodeGenerator.new
 
-    generator.output_path = "output/#{@@name}.s"
-    generator.evaluator_options = []
-    generator.evaluator_opcodes = @@opcodes
+    generator.output_path = "output/#{@@name}"
+    generator.options = []
+    generator.opcodes = @@opcodes
     generator.run
-
-    # puts @@opcodes.inspect
-    # puts 'generating spec...'
   end
 end

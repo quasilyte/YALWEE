@@ -16,7 +16,7 @@ segment .rodata
 ;;;; jump table for operation decoding
 $op_labels:
   dq @@exit
-  ;[[op_labels]];
+  %include "./op_labels.s"
 
 segment .bss
 
@@ -72,5 +72,5 @@ eval_fast:
 
   ;; opcode block below contains all supported actions
   @@exit: ret
-  ;[[op_generators]];
+  %include "./op_generators.s"
   @@next_op: next_op

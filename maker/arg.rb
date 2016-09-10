@@ -1,15 +1,19 @@
 class Arg
-  def initialize name, values
-    @name, @values = name, values
+  def initialize name, value
+    @name, @value = name, value
   end
 
-  def -(arg)
-    unless @name == arg.name
-      raise 'can only substract args within same domain'
-    end
-
-    return (Arg.new @name, @values - arg.values)
+  def imm?
+    return @name == 'imm' 
   end
 
-  attr_reader :name, :values
+  def r?
+    return @name == 'r' 
+  end
+
+  def const?
+    return @name == 'const'
+  end
+
+  attr_reader :name, :value
 end
