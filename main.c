@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-#include <c_api/mnemonics.h>
+// #include <c_api/mnemonics.h>
 
 extern void eval(const char* code);
 
@@ -11,37 +11,13 @@ void print_regs(void);
 void init(void);
 
 char loop_code[] = {
-  FILL_R0_BY_IMM8(1),
-  FILL_R1_BY_IMM8(2),
-  CHECK_R0_NEQ_R1,
-  JUMP_ABS_IF(0, 0, 0, 0),
-  INC_R2_BY_1,
-  INC_R2_BY_1,
-
-  // FILL_R0_BY_IMM32(0xFE, 255, 255, 255),
-  
-  // PREPARE4_E0,
-  //   NEQ_R0_R2,
-  //   FILL_R0_BY_R1_IF,
-  //   FILL_R0_BY_R1_IF,
-  //   FILL_R0_BY_R1_IF,
-    
-  // INC_R0_BY_IMM32(0x7F, 0x96, 0x98, 0),  
-  // FOR_NZ_START_BY_R0(-1, 4, 0, 0, 0),
-  //   JUMP_REL(0, 0, 0, 0),
-  //   // INC_R0_BY_IMM8(5),
-  //   // EXEC_PREPARED_E0,
-  //   // NEQ_R0_R2,
-  //   // FILL_R0_BY_R1_IF,
-  //   // FILL_R0_BY_R1_IF,
-  //   // FILL_R0_BY_R1_IF,
-  // END_FOR_NZ,
-
-  EXIT,
+  1, 0,  
+  0, 0,
 };
 
 int main(void) {
   init();
+  set_reg(0, 10);
   eval(loop_code);
   print_regs();
   return 0;

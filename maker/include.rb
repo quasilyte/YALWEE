@@ -1,0 +1,7 @@
+require_relative 'arg.rb'
+require_relative 'assert.rb'
+require_relative 'arg_source.rb'
+require_relative 'opcode.rb'
+require_relative 'opcode_source.rb'
+require_relative 'code_generator.rb'
+require_relative 'asm_spec.rb'

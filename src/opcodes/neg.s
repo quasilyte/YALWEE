@@ -1,0 +1,1 @@
+@op_r? neg, {neg .a}
