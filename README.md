@@ -5,10 +5,10 @@
 YALWEE - yet another lightweight execution environment.
 
 The project is divided into multiple parts:
-1. interpreter parts (written in x86_64 assembly)
-2. interpreter builder scripts
-3. embedding API
-4. useful utilities and scripts (tooling)
+  1. interpreter parts (written in x86_64 assembly)
+  2. interpreter builder scripts
+  3. embedding API
+  4. useful utilities and scripts (tooling)
 
 The user writes an *specification* which selects parts
 to be included into execution environment (interpreter).
