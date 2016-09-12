@@ -17,28 +17,6 @@
     next_op
 %endmacro
 
-%macro @op_expand 4
-  @op %2, {@macro_call %1, %3, %4}
-
-  ;;%ifmacro %1
-  ;;  @op %2, {%1 %3, %4}
-  ;;%elifdef %1
-  ;;  @op %2, {%1(%3, %4)}
-  ;;%else
-  ;;  %error %[%1] overloading undefined
-  ;;%endif
-%endmacro
-
-%macro @op_expand 3
-  %ifmacro %1
-    @op %2, {%1 %3}
-  %elifdef %1
-    @op %2, {%1(%3)}
-  %else
-    %error %[%1] overloading undefined
-  %endif
-%endmacro
-
 %macro @?_r?_const? 3
   @op %1_r%2_const%3, {@macro_call @%1_r?_const?, R%2, %3}
 %endmacro
