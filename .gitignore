@@ -2,5 +2,6 @@
 bin
 lib
 tmp
+data
 output
 *.o
