@@ -2,8 +2,12 @@ global eval
 
 ;;;; macro definitions
 %include "/core/decls/regs.s"
-%include "/macros/move_imm.s"
-%include "/macros/consume_imm.s"
+%include "/macros/validation.s"
+%include "/macros/macro_call.s"
+%include "/macros/move_int.s"
+%include "/macros/move_uint.s"
+%include "/macros/consume_int.s"
+%include "/macros/consume_uint.s"
 %include "/macros/next_op.s"
 %include "/macros/label.s"
 %include "/macros/op.s"
@@ -17,9 +21,11 @@ segment .rodata
 $op_labels:
   dq @@exit
   %include "./op_labels.s"
+  dq @@next_op
 
 segment .bss
 
+;; IP starting position address
 $code_root: resq 1
 
 segment .text
@@ -38,7 +44,7 @@ eval:
   push rsi 
   push rbp
 
-  mov [$code_root], rdi 
+  mov [$code_root], IP 
   xor CX, CX     ;; reset counter
   call eval_fast ;; interpret code
 
