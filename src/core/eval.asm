@@ -1,19 +1,20 @@
 global eval 
 
 ;;;; macro definitions
-%include "/core/decls/regs.s"
-%include "/macros/validation.s"
-%include "/macros/macro_call.s"
-%include "/macros/move_int.s"
-%include "/macros/move_uint.s"
-%include "/macros/consume_int.s"
-%include "/macros/consume_uint.s"
-%include "/macros/next_op.s"
-%include "/macros/label.s"
-%include "/macros/op.s"
+%include "/core/decls/regs.asm"
+%include "/core/decls/ptr.asm"
+%include "/macros/validation.asm"
+%include "/macros/macro_call.asm"
+%include "/macros/move_int.asm"
+%include "/macros/move_uint.asm"
+%include "/macros/consume_int.asm"
+%include "/macros/consume_uint.asm"
+%include "/macros/next_op.asm"
+%include "/macros/label.asm"
+%include "/macros/op.asm"
 
 ;;;; includes required by spec
-%include "/deps.s"
+%include "/deps.asm"
 
 ;;;; optionally redefined values
 ;; #TODO: include file with user options
@@ -23,7 +24,7 @@ segment .rodata
 ;;;; jump table for operation decoding
 $op_labels:
   dq @@exit
-  %include "/instruction_labels.s"
+  %include "/instruction_labels.asm"
   dq @@next_op
 
 segment .bss
@@ -65,9 +66,9 @@ eval:
 ;;
 ;;  rax -- tmp1
 ;;  rdx -- tmp2
-;;  rbp -- tmp3
+;;  rbx -- tmp3
 ;;  rcx -- external logical register 
-;;  rbx -- external counter step
+;;  rbp -- external counter step
 ;;  rsi -- external counter
 ;;  r8-r15    -- external registers
 ;;  xmm0-xmm7 -- external float registers
@@ -80,5 +81,5 @@ eval_fast:
 
   ;; opcode block below contains all supported actions
   @@exit: ret
-  %include "/instruction_generators.s"
+  %include "/instruction_generators.asm"
   @@next_op: next_op
