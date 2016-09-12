@@ -60,10 +60,6 @@ eval:
 ;; Invalid binary code leads to undefined behavior,
 ;; eval_fast performs no validation.
 ;;
-;; @Params:
-;;  rdi -- binary code to execute
-;; 
-;; @Uses:
 ;;  rax -- tmp1
 ;;  rdx -- tmp2
 ;;  rbp -- tmp3
@@ -72,6 +68,9 @@ eval:
 ;;  rsi -- external counter
 ;;  r8-r15    -- external registers
 ;;  xmm0-xmm7 -- external float registers
+;;
+;; @params:
+;;  rdi -- binary code to execute
 ;;
 eval_fast: 
   next_op ;; go to first opcode
