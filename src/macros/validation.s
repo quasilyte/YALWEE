@@ -3,7 +3,7 @@
 
 %macro @#assert_size 1
   %if !size_is_valid(%1)
-    %error invalid size given. expected {8, 16, 32, 64}, %[%1] given
+    %error size_error(%1)
   %endif
 %endmacro
 
