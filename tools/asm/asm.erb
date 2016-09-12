@@ -1,0 +1,39 @@
+# WARNING!
+# Contents of this file were automatically generated,
+# do not edit it by hand
+
+# Low level API for wordcode generation
+class Asm
+  include Numerics
+
+  <% @opcodes.each do |name, ops| %>
+    @@<%= name %>_opcodes = (
+      <%= ops.pretty_inspect %>
+    )
+  <% end %>
+
+  # Produces wordcode from the passed block
+  def self.compile &block
+    new.instance_eval(&block)
+  end
+
+  <% @mnemonics.each do |mnemonic| %>
+    <% if mnemonic.params.length == 0 %>
+      def <%= mnemonic.name %>
+        return <%= uint16_bits mnemonic.opcode %>
+      end
+    <% else %>
+      <% keys = mnemonic.params.map {|x| "[#{x}.name]"}.join %>
+      <% values = mnemonic.params.map {|x| "#{x}.value"}.join('+') %>
+
+      def <%= mnemonic.name %> <%= mnemonic.params.join ',' %>
+        opcode = @@<%= mnemonic.name %>_opcodes<%= keys %>
+        if opcode
+          return (uint16_bits opcode) + <%= values %>
+        else
+          raise "`<%= mnemonic.name %>': bad args combination" 
+        end
+      end
+    <% end %>
+  <% end %>
+end
