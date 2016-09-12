@@ -18,27 +18,29 @@
 %endmacro
 
 %macro @?_r?_const? 3
-  @op %1_r%2_const%3, {@macro_call @%1_r?_const?, R%2, %3}
+  @op %1_r%2_const%3, {@macro_call @%1_r?_const?, %2, %3}
 %endmacro
 
 %macro @?_r?_r? 3
-  @op %1_r%2_r%3, {@macro_call @%1_r?_r?, R%2, R%3}
+  @op %1_r%2_r%3, {@macro_call @%1_r?_r?, %2, %3}
 %endmacro
 
 %macro @?_r? 2
-  @op %1_r%2, {@macro_call @%1_r?, R%2}
+  @op %1_r%2, {@macro_call @%1_r?, %2}
+%endmacro
+
+%macro @?_int? 2
+  @op %1_int%2, {@macro_call @%1_int?, %2}
+%endmacro
+
+%macro @?_uint? 2
+  @op %1_uint%2, {@macro_call @%1_uint?, %2}
 %endmacro
 
 %macro @?_r?_int? 3
-  @op_begin %1_r%2_int%3
-    consume_int %3, rbp
-    @macro_call @%1_r?_int?, R%2, rbp
-  @op_end
+  @op %1_r%2_int%3, {@macro_call @%1_r?_int?, %2, %3}
 %endmacro
 
 %macro @?_r?_uint? 3
-  @op_begin %1_r%2_uint%3
-    consume_uint %3, rbp
-    @macro_call @%1_r?_uint?, R%2, rbp
-  @op_end
+  @op %1_r%2_uint%3, {@macro_call @%1_r?_uint?, %2, %3}
 %endmacro

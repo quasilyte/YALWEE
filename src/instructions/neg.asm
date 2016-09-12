@@ -1,1 +1,1 @@
-%define @neg_r?(a) neg a
+%define @neg_r?(a) neg R%+a

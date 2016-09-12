@@ -1,15 +1,16 @@
-%macro move_int8 1  
-  movsx %1, byte [IP]
-%endmacro
+%macro move_int 2
+  %define %%dst  %[%1]  
+  %define %%size %[%2]
 
-%macro move_int16 1  
-  movsx %1, word [IP]
-%endmacro
-
-%macro move_int32 1  
-  movsx %1, dword [IP]
-%endmacro
-
-%macro move_int64 1  
-  mov %1, qword [IP]
+  %if %%size = 8
+    movsx %[%%dst]64, ptr8 [IP]
+  %elif %%size = 16
+    movsx %[%%dst]64, ptr16 [IP]
+  %elif %%size = 32
+    movsx %[%%dst]64, ptr32 [IP]
+  %elif %%size = 64
+    mov %[%%dst]64, ptr64 [IP]
+  %else
+    %error %[size_error(%%size)]
+  %endif
 %endmacro

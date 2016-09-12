@@ -7,5 +7,9 @@
   %endif
 %endmacro
 
-%define @smul_r?_r?(a, b) imul a, b
-%define @smul_r?_int?(a, b) imul a, b
+%macro @smul_r?_int? 2
+  consume_int C, %2
+  imul R%1, C64
+%endmacro
+
+%define @smul_r?_r?(a, b) imul R%+a, R%+b

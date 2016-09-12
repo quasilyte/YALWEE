@@ -13,6 +13,12 @@
   %endif
 %endmacro
 
+%macro @#assert_numeric_diff 2
+  %if %1 = %2
+    %error numeric diff assertion failed
+  %endif
+%endmacro
+
 %macro @#assert_symbolic_diff 2
   %defstr %%a_str %1
   %defstr %%b_str %2

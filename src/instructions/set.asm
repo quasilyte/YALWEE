@@ -2,16 +2,23 @@
   %assign %%const %2
 
   %if %%const = 0
-    xor %1, %1
+    xor R%1, R%1
   %else
-    mov %1, %%const
+    mov R%1, %%const
   %endif
 %endmacro
 
 %macro @set_r?_r? 2
-  @#assert_symbolic_diff %1, %2
-  mov %1, %2
+  @#assert_numeric_diff %1, %2
+  mov R%1, R%2
 %endmacro
 
-%define @set_r?_int?(a, b) mov a, b
-%define @set_r?_uint?(a, b) mov a, b
+%macro @set_r?_int? 2
+  consume_int C, %2
+  mov R%1, C64
+%endmacro
+
+%macro @set_r?_uint? 2
+  consume_uint C, %2
+  mov R%1, C64
+%endmacro

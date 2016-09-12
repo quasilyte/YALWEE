@@ -3,23 +3,25 @@
 
   ;; #TODO: this can be specialized based on %2 value (which is constant)
   mov rbp, %2
-  mov rax, %1
+  mov rax, R%1
   cdq
   idiv rbp
-  mov %1, rax
+  mov R%1, rax
 %endmacro
 
 %macro @sdiv_r?_r? 2
-  mov rax, %1
+  mov rax, R%1
   cdq
-  idiv %2
-  mov %1, rax
+  idiv R%2
+  mov R%1, rax
 %endmacro
 
 %macro @sdiv_r?_int? 2
   ;; #TODO: compare with direct memory argument for div
-  mov rax, %1
+  consume_int C, %2
+
+  mov rax, R%1
   cdq
-  idiv %2
-  mov %1, rax
+  idiv C64
+  mov R%1, rax
 %endmacro
