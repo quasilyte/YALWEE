@@ -1,4 +1,6 @@
 %macro @sdiv_r?_const? 2
+  @#assert_nz %2
+
   ;; #TODO: this can be specialized based on %2 value (which is constant)
   mov rbp, %2
   mov rax, %1
