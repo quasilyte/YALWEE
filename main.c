@@ -1,6 +1,5 @@
 #include <stdio.h>
-
-// #include <c_api/mnemonics.h>
+#include <stdlib.h>
 
 extern void eval(const char* code);
 
@@ -9,22 +8,39 @@ void reset_regs(void);
 void set_reg(int n, long value);
 void print_regs(void);
 void init(void);
-
-char loop_code[] = {
-  1, 0,  
-  0, 0,
-};
+const char* slurp(const char* path);
 
 int main(void) {
+  const char* wordcode = slurp("data/wordcode.txt");
+
   init();
   set_reg(0, 10);
-  eval(loop_code);
+  eval(wordcode);
   print_regs();
+
   return 0;
 }
 
 void init(void) {
   reset_regs();
+}
+
+const char* slurp(const char* path) {
+  FILE* file = fopen(path, "rb"); 
+  if (!file) {
+    printf("file not found: `%s'\n", path);
+    exit(1);
+  }
+
+  fseek(file, 0, SEEK_END);
+  size_t file_size = ftell(file);
+  rewind(file);
+
+  char* data = malloc(file_size);
+  fread(data, file_size, 1, file);
+
+  fclose(file);
+  return data;
 }
 
 void read_regs(long* dest) {
