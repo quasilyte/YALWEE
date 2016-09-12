@@ -1,8 +1,22 @@
-;; register aliases
+;; internal aliases
+%define A64 rax
+%define A32 eax
+%define A16 ax 
+%define A8  al
+%define B64 rdx
+%define B32 edx
+%define B16 dx 
+%define B8  dl
+%define C64 rbx
+%define C32 ebx
+%define C16 bx 
+%define C8  bl
+
+;; external aliases
 %define ACC R0
 %define FACC FR0
 %define CX rsi
-%define STEP rbx
+%define STEP rbp
 %define IP rdi
 
 ;; registers
