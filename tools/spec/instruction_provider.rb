@@ -1,52 +1,80 @@
-module Yalwee::InstructionProvider
-  @@signatures = {
-    add:  {dst: ['r'], src: ['r', 'const', 'int', 'uint']},
-    sub:  {dst: ['r'], src: ['r', 'const', 'int', 'uint']},
-    smul: {dst: ['r'], src: ['r', 'const', 'int', 'uint']},
-    sdiv: {dst: ['r'], src: ['r', 'const', 'int', 'uint']},
-    
-    bitor:  {dst: ['r'], src: ['r', 'const', 'int', 'uint']},
-    bitand: {dst: ['r'], src: ['r', 'const', 'int', 'uint']},
-    
-    neg: {arg: ['r']},
-    abs: {arg: ['r']},
-    
-    set: {dst: ['r'], src: ['r', 'const', 'int', 'uint']},
-    swap: {a: ['r'], b: ['r']},
-    
-    test_eq:  {a: ['r'], b: ['r', 'const', 'int', 'uint']},
-    test_neq: {a: ['r'], b: ['r', 'const', 'int', 'uint']},
-    test_lt:  {a: ['r'], b: ['r', 'const', 'int', 'uint']},
-    test_gt:  {a: ['r'], b: ['r', 'const', 'int', 'uint']},
-    test_lte: {a: ['r'], b: ['r', 'const', 'int', 'uint']},
-    test_gte: {a: ['r'], b: ['r', 'const', 'int', 'uint']},
-    
-    jump_rel:    {rel_offset: ['int']},
-    jump_rel_if: {rel_offset: ['int']},
-    jump_abs:    {abs_offset: ['uint']},
-    jump_abs_if: {abs_offset: ['uint']}
-  }
+class Yalwee::InstructionProvider
+  Instruction = Yalwee::Instruction
 
-  def self.lookup name  
-    return @@signatures[name]
+  class OpcodeSeq
+    def initialize start
+      @current = start
+    end
+
+    def next
+      value = @current 
+      @current += 1
+      return value
+    end
   end
 
-  def method_missing name, *args
-    signature = @@signatures
+  def initialize
+    @opcode_seq = OpcodeSeq.new 1
+
+    @signatures = {
+      add:  {dst: ['r'], src: ['r', 'const', 'int', 'uint']},
+      sub:  {dst: ['r'], src: ['r', 'const', 'int', 'uint']},
+
+      smul: {dst: ['r'], src: ['r', 'const', 'int']},
+      sdiv: {dst: ['r'], src: ['r', 'const', 'int']},
+      
+      bitor:  {dst: ['r'], src: ['r', 'const', 'int', 'uint']},
+      bitand: {dst: ['r'], src: ['r', 'const', 'int', 'uint']},
+      
+      neg: {arg: ['r']},
+      abs: {arg: ['r']},
+      
+      set: {dst: ['r'], src: ['r', 'const', 'int', 'uint']},
+      swap: {a: ['r'], b: ['r']},
+      
+      test_eq:  {a: ['r'], b: ['r', 'const', 'int', 'uint']},
+      test_neq: {a: ['r'], b: ['r', 'const', 'int', 'uint']},
+      test_lt:  {a: ['r'], b: ['r', 'const', 'int', 'uint']},
+      test_gt:  {a: ['r'], b: ['r', 'const', 'int', 'uint']},
+      test_lte: {a: ['r'], b: ['r', 'const', 'int', 'uint']},
+      test_gte: {a: ['r'], b: ['r', 'const', 'int', 'uint']},
+      
+      jump_rel:    {rel_offset: ['int']},
+      jump_rel_if: {rel_offset: ['int']},
+      jump_abs:    {abs_offset: ['uint']},
+      jump_abs_if: {abs_offset: ['uint']}
+    }
+  end
+
+  def include? name
+    return @signatures.include? name
+  end
+
+  def create_instructions name, args
+    signature = @signatures[name]
 
     unless signature
-      raise "`#{name}': undefined symbol/instruction"
+      Yalwee.die "`#{name}': undefined symbol/instruction"
     end
     unless signature.length == args.length
-      raise "`#{name}': expected #{signature.length} args, got #{args.length}"
+      Yalwee.die "`#{name}': expected #{signature.length} args, got #{args.length}"
     end
+
+    if args.length == 0
+      return Instruction.new name, signature, [], @opcode_seq.next 
+    end
+
     signature.each_with_index do |(param_name, whitelist), i|
       args[i].each do |arg|
-        unless whitelist.include? arg.name 
+        unless whitelist.include? arg.type 
           msg = "type error; expected #{whitelist.inspect}"
-          raise "`#{name}': `#{arg.name}': #{msg}"
+          Yalwee.die "`#{name}': #{msg}, got `#{arg.type}'"
         end
       end
     end
+
+    return args.reduce(&:product).map {|args|
+      Instruction.new name, signature, [*args], @opcode_seq.next 
+    }
   end
 end

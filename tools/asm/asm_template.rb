@@ -1,14 +1,15 @@
 require 'erb'
 require 'pp'
 
-class AsmTemplate
-  def initialize mnemonics, opcodes
-    @template = ERB.new(IO.read('tools/asm/assembler.erb'))
-    @mnemonics = mnemonics
-    @opcodes = opcodes
+class Yalwee::AsmTemplate
+  @@template = ERB.new(IO.read('tools/asm/asm.erb'), nil, '-')
+
+  def initialize methods, dispatch_table
+    @methods = methods  
+    @dispatch_table = dispatch_table
   end
 
   def render
-    return @template.result(binding)
+    return @@template.result(binding)
   end
 end

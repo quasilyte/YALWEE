@@ -3,37 +3,65 @@
 # do not edit it by hand
 
 # Low level API for wordcode generation
-class Asm
-  include Numerics
+class Yalwee::Asm
+  include Yalwee::Numerics
 
-  <% @opcodes.each do |name, ops| %>
+  #FIXME: this hardcode should be fixed
+  @@registers = [
+    <% (0..8).each do |x| -%>
+      [:r<%= x %>, ''],
+    <% end -%>
+  ]
+  <% (0..8).each do |x| -%>
+    def r<%= x %>; @@registers[<%= x %>] end
+  <% end -%>
+  def cx; @@registers[0] end
+  def acc; @@registers[8] end
+  private def const value
+    return ["const#{value}".to_sym, '']
+  end
+
+  <% @dispatch_table.each do |name, opcodes| %>
     @@<%= name %>_opcodes = (
-      <%= ops.pretty_inspect %>
+      <%= opcodes.pretty_inspect %>
     )
-  <% end %>
+  <% end -%>
+
+  def initialize
+    @wordcode = []
+  end
+
+  attr_reader :wordcode
 
   # Produces wordcode from the passed block
   def self.compile &block
-    new.instance_eval(&block)
+    compiler = new 
+    compiler.run(&block)
+    return [compiler.wordcode.join].pack('B*')
   end
 
-  <% @mnemonics.each do |mnemonic| %>
-    <% if mnemonic.params.length == 0 %>
-      def <%= mnemonic.name %>
-        return <%= uint16_bits mnemonic.opcode %>
-      end
-    <% else %>
-      <% keys = mnemonic.params.map {|x| "[#{x}.name]"}.join %>
-      <% values = mnemonic.params.map {|x| "#{x}.value"}.join('+') %>
+  def run &block
+    instance_eval(&block)
+  end
 
-      def <%= mnemonic.name %> <%= mnemonic.params.join ',' %>
-        opcode = @@<%= mnemonic.name %>_opcodes<%= keys %>
+  <% @methods.each do |method| -%>
+    <% if method.params.length == 0 -%>
+      def <%= method.name %>
+        @wordcode << <%= uint16_bits method.opcode %>
+      end
+    <% else -%>
+      <% params = method.params -%>
+      <% keys = params.map {|x| "[#{x}[0]]"}.join -%>
+      <% values = params.map {|x| "#{x}[1]"}.join('+') -%>
+
+      def <%= method.name %> <%= params.join ',' %>
+        opcode = @@<%= method.name %>_opcodes<%= keys %>
         if opcode
-          return (uint16_bits opcode) + <%= values %>
+          @wordcode << (uint16_bits opcode) + <%= values %>
         else
-          raise "`<%= mnemonic.name %>': bad args combination" 
+          raise "`<%= method.name %>': bad args combination" 
         end
       end
-    <% end %>
+    <% end -%>
   <% end %>
 end
