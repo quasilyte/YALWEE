@@ -12,15 +12,18 @@ global eval
 %include "/macros/label.s"
 %include "/macros/op.s"
 
+;;;; includes required by spec
+%include "/deps.s"
+
 ;;;; optionally redefined values
-;[[options]];
+;; #TODO: include file with user options
 
 segment .rodata
 
 ;;;; jump table for operation decoding
 $op_labels:
   dq @@exit
-  %include "./op_labels.s"
+  %include "/instruction_labels.s"
   dq @@next_op
 
 segment .bss
@@ -77,5 +80,5 @@ eval_fast:
 
   ;; opcode block below contains all supported actions
   @@exit: ret
-  %include "./op_generators.s"
+  %include "/instruction_generators.s"
   @@next_op: next_op
