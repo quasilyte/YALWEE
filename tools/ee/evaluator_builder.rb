@@ -9,13 +9,13 @@ class Yalwee::EvaluatorBuilder
 
   def run output_path
     home_path = ENV['YALWEE_HOME']
-    template_path = "#{home_path}/src/core/eval.s"
+    template_path = "#{home_path}/src/core/eval.asm"
     deps_path = "#{home_path}/src/instructions"
 
     deps, labels, generators = [], [], []
     
     @instruction_map.each {|name, instructions|
-      deps << "%include \'#{deps_path}/#{name}.s'"
+      deps << "%include \'#{deps_path}/#{name}.asm'"
       labels << ";;;; #{name}"
       generators << ";;;; #{name}"
 
@@ -37,9 +37,9 @@ class Yalwee::EvaluatorBuilder
       }
     }
 
-    IO.write("#{output_path}/eval.s", (IO.read template_path))
-    IO.write("#{output_path}/deps.s", (deps.join "\n"))
-    IO.write("#{output_path}/instruction_labels.s", (labels.join "\n"))
-    IO.write("#{output_path}/instruction_generators.s", (generators.join "\n") )
+    IO.write("#{output_path}/eval.asm", (IO.read template_path))
+    IO.write("#{output_path}/deps.asm", (deps.join "\n"))
+    IO.write("#{output_path}/instruction_labels.asm", (labels.join "\n"))
+    IO.write("#{output_path}/instruction_generators.asm", (generators.join "\n") )
   end
 end
