@@ -1,1 +1,1 @@
-@op_r? neg, {neg .a}
+%define @neg_r?(a) neg a

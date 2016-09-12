@@ -1,3 +1,4 @@
-@op_r?_const? bitand, {and .a, .b}
-@op_r?_r? bitand, {and .a, .b}
-@op_r?_imm? bitand, {and .a, .b}
+%define @bitand_r?_const?(a, b) and a, b
+%define @bitand_r?_r?(a, b)     and a, b
+%define @bitand_r?_int?(a, b)   and a, b
+%define @bitand_r?_uint?(a, b)  and a, b

@@ -1,8 +1,13 @@
-%macro @test_gt 2
+%macro @test_gt_?_? 2
   cmp %1, %2 
   setg cl
 %endmacro
 
-@op_r?_const? test_gt, {@test_gt .a, .b}
-@op_r?_r? test_gt, {@test_gt .a, .b}
-@op_r?_imm? test_gt, {@test_gt .a, .b}
+%macro @test_gt_r?_r? 2
+  @#assert_symbolic_diff %1, %2
+  @test_gt_?_? %1, %2
+%endmacro
+
+%define @test_gt_r?_const?(a, b) @test_gt_?_? a, b
+%define @test_gt_r?_int?(a, b)   @test_gt_?_? a, b
+%define @test_gt_r?_uint?(a, b)  @test_gt_?_? a, b

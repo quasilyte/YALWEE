@@ -1,11 +1,5 @@
-%macro @jump_rel_if_imm? 1
-  @op_begin jump_rel_if_imm%1
-    add IP, %1
-    jecxz %%jump_noop
-
-    movsx rbp, dword [IP - %1]
-    add IP, rbp
-
-    %%jump_noop:       
-  @op_end
+%macro @jump_rel_if_int? 1
+  jecxz %%jump_noop
+  add IP, %1
+  %%jump_noop:
 %endmacro
