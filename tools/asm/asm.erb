@@ -44,10 +44,14 @@ class Yalwee::Asm
     instance_eval(&block)
   end
 
+  def exit
+    @wordcode << (uint16_bits 0) 
+  end
+
   <% @methods.each do |method| -%>
     <% if method.params.length == 0 -%>
       def <%= method.name %>
-        @wordcode << <%= uint16_bits method.opcode %>
+        @wordcode << '<%= uint16_bits method.opcode %>'
       end
     <% else -%>
       <% params = method.params -%>
