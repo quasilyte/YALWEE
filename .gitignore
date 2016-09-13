@@ -3,5 +3,6 @@ bin
 lib
 tmp
 data
+local
 output
 *.o
