@@ -17,6 +17,10 @@
     next_op
 %endmacro
 
+%macro @? 1
+  @op %1, {@macro_call @%1}
+%endmacro
+
 %macro @?_r?_const? 3
   @op %1_r%2_const%3, {@macro_call @%1_r?_const?, %2, %3}
 %endmacro
