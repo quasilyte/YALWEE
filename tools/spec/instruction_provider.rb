@@ -42,7 +42,10 @@ class Yalwee::InstructionProvider
       jump_rel:    {rel_offset: ['int']},
       jump_rel_if: {rel_offset: ['int']},
       jump_abs:    {abs_offset: ['uint']},
-      jump_abs_if: {abs_offset: ['uint']}
+      jump_abs_if: {abs_offset: ['uint']},
+
+      for_nz_init: {init: ['r'], step: ['int']},
+      end_for_nz: {}
     }
   end
 
