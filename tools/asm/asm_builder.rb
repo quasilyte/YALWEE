@@ -18,12 +18,14 @@ class Yalwee::AsmBuilder
     methods, table = [], {}
 
     instruction_map.each do |name, instructions|
-      table[name] = instructions.
-        map {|x| dispatcher_entry x}.
-        reduce {|x, y| x.merge(y) {|_, a, b| a.merge b}}
-
       # any instruction will do
       instruction = instructions[0]
+
+      if instruction.args.length != 0 
+        table[name] = instructions.
+          map {|x| dispatcher_entry x}.
+          reduce {|x, y| x.merge(y) {|_, a, b| a.merge b}}
+      end
 
       params = instruction.signature.keys
       name = instruction.name 
