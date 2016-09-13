@@ -3,7 +3,9 @@
 |--------------------------------------------------------+----------|
 | Make prepare op receive N byte argument                | 5/5      |
 | Double (float64) ops                                   | 5/5      |
+| Write tests                                            | 4/5      |
 | Memory ops                                             | 4/5      |
+| Stabilize asm macro API                                | 4/5      |
 | Batch ops (also, SIMD)                                 | 3/5      |
 | Effective padding of JIT code (to align it)            | 3/5      |
 | Implement JIT support for opcodes bigger than 16 bytes | 3/5      |
@@ -12,4 +14,20 @@
 | Add shift ops                                          | 2/5      |
 | Improve perfomance of JIT memcpy for code              | 1/5      |
 | Tune code (need alignment tuning in some places)       | 1/5      |
+
+#+CAPTION: docs tasks
+| Task                              | Priority |
+|-----------------------------------+----------|
+| Extend README with project        | 4/5      |
+| Add architecture related diagrams | 4/5      |
+
+#+CAPTION: spec generator tasks
+| Task                                     | Priority |
+|------------------------------------------+----------|
+| Options in EE spec (register count, etc) | 4/5      |
+
+#+CAPTION: ruby API tasks
+| Task | Priority |
+|------+----------|
+|      |          |
 
