@@ -1,71 +1,94 @@
-require_relative '../maker/include.rb'
+# $LOAD_PATH << ENV['YALWEE_TOOLS']
 
-extend AsmSpec
+module Yalwee
+end
 
-name 'gpa'
-description 'general purpose, accumulator based machine'
-author 'quasilyte'
-version '0.1'
+require_relative '../tools/assert.rb'
+require_relative '../tools/die.rb'
+require_relative '../tools/spec/arg.rb'
+require_relative '../tools/spec/arg_provider.rb'
+require_relative '../tools/spec/instruction.rb'
+require_relative '../tools/spec/instruction_provider.rb'
+require_relative '../tools/spec/spec.rb'
+require_relative '../tools/asm/method.rb'
+require_relative '../tools/asm/numerics.rb'
+require_relative '../tools/asm/asm_template.rb'
+require_relative '../tools/asm/asm_builder.rb'
+require_relative '../tools/ee/evaluator_builder.rb'
 
-interfaces ['C']
+spec = Yalwee::Spec.create {
+  name 'gpaso'
+  author 'quasilyte'
+  version '0.1'
 
-# notation definition
-$int = int(8, 32, 64) # immediate sizes
-$acc = r(0)           # accumulator
-$cx  = r(8)           # counter
-$gpr = r(1..7)        # GP registers, except accumulator
-$GPR = r(0..7)        # GP registers
-$SR  = r(0, 8)        # registers with special purposes
-$R   = r(0..8)        # any register
+  description <<-INFO
+    General purpose evaluator with 
+    accumulator based arithmetic instruction set.
+    No support for unsigned values.
+  INFO
 
-opcodes(
-  (add $SR, $GPR),
-  (add $R, const(1)),
-  (add $SR, const(4, 8)),
-  (add $R, $int),
-  (add $R, uint(8))
+  # notation definition
+  INT = int(8, 32, 64) # int sizes
+  ACC = r(0)           # accumulator
+  CX  = r(8)           # counter
+  GPR = r(0..7)        # GP registers
+  SR  = r(0, 8)        # registers with special purposes
+  R   = r(0..8)        # any register
 
-  (sub $SR, $GPR),
-  # (sub $R, const(1)),
-  # (sub $SR, const(4, 8)),
-  # (sub $R, $int),
+  instructions(
+    (add R, const(1)),
+    (add SR, const(4, 8)),
+    (add SR, GPR),
+    (add R, INT),
 
-  # (mul $acc, $GPR),
-  # (mul $GPR, $int),
+    # (sub SR, GPR),
+    # (sub R, const(1)),
+    # (sub SR, const(4, 8)),
+    # (sub R, INT),
 
-  # (div $acc, $GPR),
-  # (div $GPR, $int),
+    # (smul ACC, GPR),
+    # (smul GPR, INT),
 
-  # (bitor $acc, $GPR),
-  # (bitor $GPR, $int),
+    # (sdiv ACC, GPR),
+    # (sdiv GPR, INT),
 
-  # (bitand $acc, $GPR),
-  # (bitand $GPR, $int),
+    # (bitor ACC, GPR),
+    # (bitor GPR, INT),
 
-  # (abs $GPR),
-  # (neg $GPR),
+    # (bitand ACC, GPR),
+    # (bitand GPR, INT),
 
-  # (set $R, const(0)),
-  # (set $R, $imm),
-  # *(0..8).map {|x| (set r(x), $GPR - r(x))},
+    # (abs GPR),
+    # (neg GPR),
 
-  # (swap $acc, $gpr),
+    # (set R, const(0)),
+    (set R, INT),
 
-  # (test_eq $acc, $gpr),
-  # (test_eq $GPR, const(0)),
+    # (swap ACC, r(1..7)),
 
-  # (test_neq $acc, $gpr),
-  # (test_neq $GPR, const(0)),
+    # (test_eq ACC, r(1..7)),
+    # (test_eq GPR, const(0)),
 
-  # (test_lt $acc, $gpr),
-  # (test_lte $acc, $gpr),
+    # (test_neq ACC, r(1..7)),
+    # (test_neq GPR, const(0)),
 
-  # (test_gt $acc, $gpr),
-  # (test_gte $acc, $gpr),
+    # (test_lt ACC, r(1..7)),
+    # (test_lte ACC, r(1..7)),
 
-  # (jump_rel imm(32)),
-  # (jump_rel_if imm(32)),
+    # (test_gt ACC, r(1..7)),
+    # (test_gte ACC, r(1..7)),
 
-  # (jump_abs imm(32)),
-  # (jump_abs_if imm(32))
-)
+    # (jump_rel int(32)),
+    # (jump_rel_if int(32)),
+
+    # (jump_abs uint(32)),
+    # (jump_abs_if uint(32)),
+
+    (for_nz_init r(0), int(8)),
+    (end_for_nz)
+  )
+}
+
+IO.write('data/assembler.rb', (Yalwee::AsmBuilder.new spec).build) 
+(Yalwee::EvaluatorBuilder.new spec).run './output/gpa'
+
