@@ -1,3 +1,3 @@
-%macro @label 1
-  dq @@%1
+%macro @@label 1
+  dq instr_label(%1)
 %endmacro
