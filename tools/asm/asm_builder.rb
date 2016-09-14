@@ -43,7 +43,7 @@ class Yalwee::AsmBuilder
     return case args.length
     when 1 then {args[0].sym => opcode}
       when 2 then {args[0].sym => {args[1].sym => opcode}}
-      when 3 then {args[0].sym => {args[2].sym => {args[3].sym => opcode}}}
+      when 3 then {args[0].sym => {args[1].sym => {args[2].sym => opcode}}}
       else Yalwee::die "arity is too high (3 is max)"
     end
   end
