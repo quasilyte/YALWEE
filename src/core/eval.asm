@@ -4,6 +4,8 @@ global eval
 %include "/core/decls/regs.asm"
 %include "/core/decls/ptr.asm"
 %include "/macros/validation.asm"
+%include "/macros/assertions.asm"
+%include "/macros/instr.asm"
 %include "/macros/macro_call.asm"
 %include "/macros/move_int.asm"
 %include "/macros/move_uint.asm"
@@ -11,7 +13,7 @@ global eval
 %include "/macros/consume_uint.asm"
 %include "/macros/next_op.asm"
 %include "/macros/label.asm"
-%include "/macros/op.asm"
+%include "/macros/dependent_instrs.asm"
 
 ;;;; includes required by spec
 %include "/deps.asm"
@@ -82,4 +84,6 @@ eval_fast:
   ;; opcode block below contains all supported actions
   @@exit: ret
   %include "/instruction_generators.asm"
+  @@dependent_instrs
   @@next_op: next_op
+  
